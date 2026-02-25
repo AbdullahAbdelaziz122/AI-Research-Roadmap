@@ -6,7 +6,7 @@
 <title>AI/ML PhD + Senior Engineer Roadmap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles_enhanced.css">
 </head>
 <body>
 
@@ -95,11 +95,11 @@
         </div>
         <table>
           <tr><th>Resource</th><th>Focus</th><th>Format</th></tr>
-          <tr><td>Gilbert Strang — Linear Algebra (MIT OCW)</td><td>Full linear algebra foundation</td><td>Video + Textbook</td></tr>
-          <tr><td>3Blue1Brown — Essence of Linear Algebra</td><td>Geometric intuition for all concepts</td><td>Video Series</td></tr>
-          <tr><td>Deep Learning Book (Goodfellow) Ch. 2–4</td><td>Math of ML: LA, Probability, Numerics</td><td>Free Online</td></tr>
-          <tr><td>Probabilistic ML (Kevin Murphy, 2022)</td><td>Bayesian perspective on modern ML</td><td>Textbook</td></tr>
-          <tr><td>CS229 Lecture Notes (Stanford)</td><td>Statistical learning theory</td><td>PDF Notes</td></tr>
+          <tr><td><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener noreferrer">Gilbert Strang — Linear Algebra (MIT OCW)</a></td><td>Full linear algebra foundation</td><td>Video + Textbook</td></tr>
+          <tr><td><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank" rel="noopener noreferrer">3Blue1Brown — Essence of Linear Algebra</a></td><td>Geometric intuition for all concepts</td><td>Video Series</td></tr>
+          <tr><td><a href="https://www.deeplearningbook.org/" target="_blank" rel="noopener noreferrer">Deep Learning Book (Goodfellow) Ch. 2–4</a></td><td>Math of ML: LA, Probability, Numerics</td><td>Free Online</td></tr>
+          <tr><td><a href="https://probml.github.io/pml-book/book1.html" target="_blank" rel="noopener noreferrer">Probabilistic ML (Kevin Murphy, 2022)</a></td><td>Bayesian perspective on modern ML</td><td>Textbook</td></tr>
+          <tr><td><a href="https://cs229.stanford.edu/main_notes.pdf" target="_blank" rel="noopener noreferrer">CS229 Lecture Notes (Stanford)</a></td><td>Statistical learning theory</td><td>PDF Notes</td></tr>
           <tr><td>Khan Academy / Paul's Math Notes</td><td>Multivariable calculus refresher</td><td>Online</td></tr>
         </table>
       </div>
@@ -222,11 +222,11 @@
         <div class="card">
           <div class="card-title">📚 Courses</div>
           <ul class="checklist">
-            <li><span class="check-box"></span><strong>Stanford CS224N</strong> — NLP with Deep Learning (primary)</li>
-            <li><span class="check-box"></span><strong>Stanford CME295</strong> — Transformers &amp; LLMs (supplement)</li>
+            <li><span class="check-box"></span><strong><a href="https://web.stanford.edu/class/cs224n/" target="_blank" rel="noopener noreferrer">Stanford CS224N</a></strong> — NLP with Deep Learning (primary)</li>
+            <li><span class="check-box"></span><strong><a href="https://cme295.stanford.edu/" target="_blank" rel="noopener noreferrer">Stanford CME295</a></strong> — Transformers &amp; LLMs (supplement)</li>
             <li><span class="check-box"></span><strong>fast.ai Part 1</strong> — Practical Deep Learning (code-first grounding)</li>
             <li><span class="check-box"></span><strong>Andrej Karpathy</strong> — Neural Nets: Zero to Hero (YouTube)</li>
-            <li><span class="check-box"></span><strong>CMU 11-711</strong> — Advanced NLP (PhD-level supplement)</li>
+            <li><span class="check-box"></span><strong><a href="http://www.cs.cmu.edu/~nasmith/ANLPS/" target="_blank" rel="noopener noreferrer">CMU 11-713</a></strong> — Advanced NLP (PhD-level supplement)</li>
           </ul>
         </div>
       </div>
@@ -255,46 +255,46 @@
         <div class="milestone-icon">🎯</div>
         <div>
           <div class="milestone-title">Goal</div>
-          <div class="milestone-text">Achieve PhD-level vision. Understand classical image processing, deep CNNs, ViT, diffusion models, 3D reconstruction (NeRF, Gaussian Splatting), and multimodal systems like CLIP and GPT-4o.</div>
+          <div class="milestone-text">Master visual representations from CNNs to Vision Transformers. Understand diffusion models, multimodal alignment (CLIP), and how vision and language converge at scale.</div>
         </div>
       </div>
 
       <div class="cards-grid">
         <div class="card">
-          <span class="card-icon">🖼</span>
-          <div class="card-title">Classical Vision &amp; Signals</div>
-          <p>Images as signals. Linear filters, Fourier transforms, image pyramids, edge detection, SIFT, HOG. Physics of image formation, pinhole cameras.</p>
-          <div class="tag-list"><span class="tag">Fourier</span><span class="tag">Filters</span><span class="tag">SIFT</span><span class="tag">Camera Model</span></div>
+          <span class="card-icon">🖼️</span>
+          <div class="card-title">CNNs &amp; Modern Architectures</div>
+          <p>ResNet, EfficientNet, MobileNet. Understand inductive biases: translation equivariance, hierarchical features. Why CNNs dominated before Transformers.</p>
+          <div class="tag-list"><span class="tag">ResNet</span><span class="tag">EfficientNet</span><span class="tag">Convolution</span></div>
         </div>
         <div class="card">
-          <span class="card-icon">🏗</span>
-          <div class="card-title">CNNs &amp; Deep Architectures</div>
-          <p>AlexNet → VGG → ResNet (residual connections) → EfficientNet → ConvNeXt. Understand local receptive fields, weight sharing, pooling strategies.</p>
-          <div class="tag-list"><span class="tag">ResNet</span><span class="tag">ConvNeXt</span><span class="tag">Batch Norm</span></div>
+          <span class="card-icon">👁️</span>
+          <div class="card-title">Vision Transformers (ViT)</div>
+          <p>Patch embeddings, positional encoding for 2D, scaling laws. Why ViT matches CNNs with pure Transformer architecture. DeiT, CLIP vision encoder.</p>
+          <div class="tag-list"><span class="tag">ViT</span><span class="tag">DeiT</span><span class="tag">Patches</span><span class="tag">CLIP</span></div>
         </div>
         <div class="card">
-          <span class="card-icon">👁</span>
-          <div class="card-title">Vision Transformers</div>
-          <p>ViT: image patches as tokens. DINO, DINOv2 self-supervised pretraining. Swin Transformer hierarchical representations. MAE masked autoencoding.</p>
-          <div class="tag-list"><span class="tag">ViT</span><span class="tag">DINO</span><span class="tag">MAE</span><span class="tag">Swin</span></div>
-        </div>
-        <div class="card">
-          <span class="card-icon">🌐</span>
-          <div class="card-title">Multimodal: CLIP &amp; Beyond</div>
-          <p>Contrastive Language-Image Pre-training. Zero-shot classification, image-text retrieval, visual question answering. BLIP, BLIP-2, LLaVA, GPT-4V.</p>
-          <div class="tag-list"><span class="tag">CLIP</span><span class="tag">LLaVA</span><span class="tag">VQA</span><span class="tag">Contrastive</span></div>
-        </div>
-        <div class="card">
-          <span class="card-icon">🌀</span>
+          <span class="card-icon">🌊</span>
           <div class="card-title">Diffusion Models</div>
-          <p>DDPM, DDIM, score matching, classifier-free guidance. Latent diffusion (Stable Diffusion). DiT (Diffusion Transformers) as backbone of Sora 2.</p>
-          <div class="tag-list"><span class="tag">DDPM</span><span class="tag">LDM</span><span class="tag">DiT</span><span class="tag">CFG</span></div>
+          <p>Forward/reverse diffusion, score matching, DDPM, DDIM. Latent diffusion (Stable Diffusion). Classifier-free guidance. The foundation of modern generative vision.</p>
+          <div class="tag-list"><span class="tag">DDPM</span><span class="tag">Latent Diffusion</span><span class="tag">Guidance</span></div>
         </div>
         <div class="card">
-          <span class="card-icon">🧊</span>
-          <div class="card-title">3D Vision &amp; Scene Reconstruction</div>
-          <p>NeRF, Instant-NGP, 3D Gaussian Splatting. Projective geometry, fundamental matrix, eight-point algorithm, structure-from-motion (SfM).</p>
-          <div class="tag-list"><span class="tag">NeRF</span><span class="tag">Gaussian Splatting</span><span class="tag">SfM</span><span class="tag">MVS</span></div>
+          <span class="card-icon">🔗</span>
+          <div class="card-title">Multimodal Alignment</div>
+          <p>CLIP: contrastive vision-language learning. BLIP, LLaVA: vision-language models. Understand how alignment enables zero-shot transfer and emergent reasoning.</p>
+          <div class="tag-list"><span class="tag">CLIP</span><span class="tag">BLIP</span><span class="tag">LLaVA</span><span class="tag">VQA</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎨</span>
+          <div class="card-title">3D &amp; Geometric Deep Learning</div>
+          <p>NeRF, 3D Gaussian Splatting. Graph Neural Networks for 3D point clouds. Equivariant networks. The frontier of spatial reasoning.</p>
+          <div class="tag-list"><span class="tag">NeRF</span><span class="tag">3DGS</span><span class="tag">GNN</span><span class="tag">Equivariance</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎬</span>
+          <div class="card-title">Video Understanding</div>
+          <p>Temporal convolutions, 3D CNNs, optical flow. Transformer-based video models. Video-language alignment. Sora / world models on the horizon.</p>
+          <div class="tag-list"><span class="tag">3D CNN</span><span class="tag">Optical Flow</span><span class="tag">Video-LM</span></div>
         </div>
       </div>
 
@@ -304,17 +304,17 @@
           <span>Core Papers — Phase 2 Reading List</span>
         </div>
         <table>
-          <tr><th>Year</th><th>Paper</th><th>Why It Matters</th></tr>
-          <tr><td>2012</td><td>AlexNet (Krizhevsky et al.)</td><td>Sparked the modern deep learning era</td></tr>
-          <tr><td>2016</td><td>Deep Residual Networks — ResNet (He et al.)</td><td>Residual connections enabled very deep networks</td></tr>
-          <tr><td>2020</td><td>ViT — An Image is Worth 16x16 Words</td><td>Transformer paradigm enters vision</td></tr>
-          <tr><td>2020</td><td>NeRF (Mildenhall et al.)</td><td>Revolutionary neural 3D reconstruction</td></tr>
-          <tr><td>2020</td><td>DDPM (Ho et al.)</td><td>Theoretical basis for modern image generation</td></tr>
-          <tr><td>2021</td><td>CLIP (Radford et al.)</td><td>Foundation of modern vision-language models</td></tr>
-          <tr><td>2022</td><td>MAE (He et al.)</td><td>Self-supervised ViT training</td></tr>
-          <tr><td>2022</td><td>LDM / Stable Diffusion (Rombach et al.)</td><td>Practical high-res diffusion generation</td></tr>
-          <tr><td>2023</td><td>3D Gaussian Splatting</td><td>Real-time neural 3D rendering</td></tr>
-          <tr><td>2024</td><td>VGGT — Visual Geometry Grounded Transformer</td><td>Current frontier of 3D scene understanding</td></tr>
+          <tr><th>Year</th><th>Paper</th><th>Significance</th></tr>
+          <tr><td>2012</td><td>AlexNet (Krizhevsky et al.)</td><td>Deep learning revolution in vision</td></tr>
+          <tr><td>2015</td><td>ResNet (He et al.)</td><td>Skip connections; enabled very deep networks</td></tr>
+          <tr><td>2020</td><td>Vision Transformer (Dosovitskiy et al.)</td><td>Transformers work in vision without inductive bias</td></tr>
+          <tr><td>2020</td><td>CLIP (Radford et al.)</td><td>Vision-language alignment; zero-shot transfer</td></tr>
+          <tr><td>2020</td><td>Denoising Diffusion Probabilistic Models (Ho et al.)</td><td>Modern generative model foundation</td></tr>
+          <tr><td>2021</td><td>NeRF (Mildenhall et al.)</td><td>Neural radiance fields; 3D from 2D</td></tr>
+          <tr><td>2023</td><td>Stable Diffusion (Rombach et al.)</td><td>Latent diffusion; democratized image generation</td></tr>
+          <tr><td>2023</td><td>LLaVA (Liu et al.)</td><td>Vision-language instruction tuning</td></tr>
+          <tr><td>2024</td><td>3D Gaussian Splatting (Kerbl et al.)</td><td>Real-time 3D rendering alternative to NeRF</td></tr>
+          <tr><td>2024</td><td>GPT-4V / Gemini Vision Reports</td><td>State-of-the-art multimodal reasoning</td></tr>
         </table>
       </div>
 
@@ -322,132 +322,21 @@
         <div class="card">
           <div class="card-title">🛠 Practical Projects — Phase 2</div>
           <ul class="checklist">
-            <li><span class="check-box"></span>Implement a CNN from scratch; train on CIFAR-10</li>
-            <li><span class="check-box"></span>Fine-tune ViT on a custom image dataset</li>
-            <li><span class="check-box"></span>Reproduce CLIP contrastive training on a small dataset</li>
-            <li><span class="check-box"></span>Implement DDPM from scratch; generate MNIST samples</li>
-            <li><span class="check-box"></span>Train a tiny NeRF on a set of images (using tiny-nerf)</li>
-            <li><span class="check-box"></span>Fine-tune LLaVA or InternVL for a visual QA task</li>
+            <li><span class="check-box"></span>Implement ResNet from scratch; train on CIFAR-10</li>
+            <li><span class="check-box"></span>Build Vision Transformer (ViT) and fine-tune on ImageNet</li>
+            <li><span class="check-box"></span>Implement DDPM diffusion model; generate images</li>
+            <li><span class="check-box"></span>Reproduce CLIP training on a small dataset</li>
+            <li><span class="check-box"></span>Fine-tune a vision-language model (LLaVA) on custom data</li>
+            <li><span class="check-box"></span>Implement NeRF or 3D Gaussian Splatting</li>
           </ul>
         </div>
         <div class="card">
           <div class="card-title">📚 Courses</div>
           <ul class="checklist">
-            <li><span class="check-box"></span><strong>Stanford CS231N</strong> — CNNs for Visual Recognition (primary)</li>
-            <li><span class="check-box"></span><strong>MIT 6.869</strong> — Advances in Computer Vision</li>
-            <li><span class="check-box"></span><strong>CMU 16-825</strong> — Learning for 3D Vision</li>
-            <li><span class="check-box"></span><strong>CVPR / ECCV tutorials</strong> — Diffusion models, NeRF workshops</li>
-            <li><span class="check-box"></span><strong>Justin Johnson — EECS 498</strong> (Michigan, free videos)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="margin-top:16px">
-        <div class="progress-wrap">
-          <div class="progress-label"><span>Phase Progress</span><span>70%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════ -->
-    <!-- PHASE 3 — SYSTEMS & INFRASTRUCTURE -->
-    <!-- ════════════════════════════════════════ -->
-    <section class="p3">
-      <div class="phase-header">
-        <div class="phase-dot">3</div>
-        <div class="phase-title-wrap">
-          <div class="phase-label">// Phase Three · Months 12–20</div>
-          <div class="phase-title">Systems, Infrastructure &amp; Scale</div>
-        </div>
-      </div>
-
-      <div class="milestone">
-        <div class="milestone-icon">🎯</div>
-        <div>
-          <div class="milestone-title">Goal</div>
-          <div class="milestone-text">Become the engineer who can actually train models. Understand GPU memory, custom CUDA/Triton kernels, distributed training, tokenization, data curation, and scaling laws at a production level.</div>
-        </div>
-      </div>
-
-      <div class="cards-grid">
-        <div class="card">
-          <span class="card-icon">💾</span>
-          <div class="card-title">GPU Architecture &amp; Memory</div>
-          <p>CUDA programming model: warps, SMs, shared memory. The HBM → SRAM hierarchy. Understand memory bandwidth bottlenecks that define training speed.</p>
-          <div class="tag-list"><span class="tag">CUDA</span><span class="tag">SRAM</span><span class="tag">HBM</span><span class="tag">Warps</span></div>
-        </div>
-        <div class="card">
-          <span class="card-icon">⚡</span>
-          <div class="card-title">Efficient Attention</div>
-          <p>FlashAttention and FlashAttention2: IO-aware attention that avoids quadratic memory. Write Triton kernels. Understand tiling, online softmax, backward pass.</p>
-          <div class="tag-list"><span class="tag">FlashAttn2</span><span class="tag">Triton</span><span class="tag">Tiling</span><span class="tag">IO-Aware</span></div>
-        </div>
-        <div class="card">
-          <span class="card-icon">🌐</span>
-          <div class="card-title">Distributed Training</div>
-          <p>Data parallelism (DDP), tensor parallelism (Megatron), pipeline parallelism (GPipe), ZeRO (DeepSpeed). 3D parallelism for trillion-parameter models.</p>
-          <div class="tag-list"><span class="tag">DDP</span><span class="tag">DeepSpeed</span><span class="tag">Megatron</span><span class="tag">ZeRO</span></div>
-        </div>
-        <div class="card">
-          <span class="card-icon">🔤</span>
-          <div class="card-title">Tokenization &amp; Data Engineering</div>
-          <p>BPE, WordPiece, SentencePiece. Build a tokenizer from scratch. Data curation: Common Crawl filtering, deduplication, quality scoring, domain mixing.</p>
-          <div class="tag-list"><span class="tag">BPE</span><span class="tag">SentencePiece</span><span class="tag">Dedup</span><span class="tag">FineWeb</span></div>
-        </div>
-        <div class="card">
-          <span class="card-icon">📊</span>
-          <div class="card-title">Scaling Laws</div>
-          <p>Chinchilla laws, compute-optimal training, emergent capabilities. Use scaling laws to forecast model quality before billion-dollar training runs.</p>
-          <div class="tag-list"><span class="tag">Chinchilla</span><span class="tag">Compute-Optimal</span><span class="tag">IsoFLOP</span></div>
-        </div>
-        <div class="card">
-          <span class="card-icon">🗜</span>
-          <div class="card-title">Quantization &amp; Efficiency</div>
-          <p>FP8, BF16 mixed precision. Post-training quantization: GPTQ, AWQ. QLoRA for efficient fine-tuning. Speculative decoding for faster inference.</p>
-          <div class="tag-list"><span class="tag">GPTQ</span><span class="tag">AWQ</span><span class="tag">QLoRA</span><span class="tag">FP8</span></div>
-        </div>
-      </div>
-
-      <div class="table-card">
-        <div class="table-card-header">
-          <div class="dot-indicator"></div>
-          <span>Core Papers — Phase 3 Systems Reading List</span>
-        </div>
-        <table>
-          <tr><th>Year</th><th>Paper</th><th>Why It Matters</th></tr>
-          <tr><td>2022</td><td>FlashAttention (Dao et al.)</td><td>IO-aware attention — mandatory for training engineers</td></tr>
-          <tr><td>2022</td><td>Chinchilla Scaling Laws (Hoffmann et al.)</td><td>How to allocate compute optimally</td></tr>
-          <tr><td>2022</td><td>ZeRO / DeepSpeed (Rajbhandari et al.)</td><td>Trillion-parameter training on commodity GPUs</td></tr>
-          <tr><td>2023</td><td>FlashAttention-2 (Dao et al.)</td><td>2× speedup; standard for all modern training</td></tr>
-          <tr><td>2023</td><td>Megatron-LM (NVIDIA)</td><td>3D tensor parallelism for massive clusters</td></tr>
-          <tr><td>2024</td><td>FineWeb (HuggingFace)</td><td>State-of-the-art web data curation pipeline</td></tr>
-          <tr><td>2024</td><td>FlashAttention-3 (Dao et al.)</td><td>H100-native optimized attention kernels</td></tr>
-          <tr><td>2025</td><td>Ultra-Scale Playbook (HuggingFace)</td><td>Comprehensive distributed training guide</td></tr>
-        </table>
-      </div>
-
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-title">🛠 Practical Projects — Phase 3</div>
-          <ul class="checklist">
-            <li><span class="check-box"></span>Build a BPE tokenizer from scratch — train on 1GB text corpus</li>
-            <li><span class="check-box"></span>Write a Triton kernel for FlashAttention forward pass</li>
-            <li><span class="check-box"></span>Set up DDP training on a 4-GPU node; benchmark throughput</li>
-            <li><span class="check-box"></span>Train a 1B-param LM from scratch (Stanford CS336 project)</li>
-            <li><span class="check-box"></span>Reproduce FineWeb-style data curation pipeline</li>
-            <li><span class="check-box"></span>Implement speculative decoding; measure latency gains</li>
-            <li><span class="check-box"></span>Profile a training run with NSight; find the bottleneck</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="card-title">📚 Courses &amp; Resources</div>
-          <ul class="checklist">
-            <li><span class="check-box"></span><strong>Stanford CS336</strong> — Language Modeling from Scratch (primary)</li>
-            <li><span class="check-box"></span><strong>CUDA Programming Guide</strong> (NVIDIA docs)</li>
-            <li><span class="check-box"></span><strong>Triton documentation + tutorials</strong> (OpenAI / triton-lang)</li>
-            <li><span class="check-box"></span><strong>HuggingFace Ultra-Scale Playbook</strong></li>
-            <li><span class="check-box"></span><strong>Sasha Rush — miniGPT / annotated transformer</strong></li>
+            <li><span class="check-box"></span><strong><a href="https://cs231n.stanford.edu/" target="_blank" rel="noopener noreferrer">Stanford CS231N</a></strong> — Deep Learning for Computer Vision (primary)</li>
+            <li><span class="check-box"></span><strong>fast.ai Part 2</strong> — Advanced Deep Learning (applications)</li>
+            <li><span class="check-box"></span><strong>Hugging Face Diffusers course</strong> — Hands-on diffusion models</li>
+            <li><span class="check-box"></span><strong>CVPR / ICCV tutorials</strong> — Latest vision research</li>
           </ul>
         </div>
       </div>
@@ -461,14 +350,14 @@
     </section>
 
     <!-- ════════════════════════════════════════ -->
-    <!-- PHASE 4 — REASONING, AGENTS, RESEARCH -->
+    <!-- PHASE 3 — SYSTEMS & REASONING -->
     <!-- ════════════════════════════════════════ -->
-    <section class="p4">
+    <section class="p3">
       <div class="phase-header">
-        <div class="phase-dot">4</div>
+        <div class="phase-dot">3</div>
         <div class="phase-title-wrap">
-          <div class="phase-label">// Phase Four · Months 20–30</div>
-          <div class="phase-title">Reasoning, Agents &amp; Research Frontier</div>
+          <div class="phase-label">// Phase Three · Months 13–22</div>
+          <div class="phase-title">Systems, Reasoning &amp; Agents</div>
         </div>
       </div>
 
@@ -476,28 +365,34 @@
         <div class="milestone-icon">🎯</div>
         <div>
           <div class="milestone-title">Goal</div>
-          <div class="milestone-text">Operate at the frontier. Understand DeepSeek-R1's pure RL training, GRPO, agentic frameworks, RAG, video world models, and contribute original research. Begin publishing.</div>
+          <div class="milestone-text">Master GPU programming, distributed training, and advanced reasoning. Build systems that scale. Implement reasoning chains, reinforcement learning for alignment, and agentic systems.</div>
         </div>
       </div>
 
       <div class="cards-grid">
         <div class="card">
-          <span class="card-icon">🤔</span>
-          <div class="card-title">Reasoning &amp; Chain-of-Thought</div>
-          <p>CoT, self-consistency, tree-of-thought, process reward models (PRM) vs outcome reward models (ORM). The "Open-Book Paradox" — why closed-book training builds stronger reasoners.</p>
-          <div class="tag-list"><span class="tag">CoT</span><span class="tag">PRM</span><span class="tag">ORM</span><span class="tag">Self-Consistency</span></div>
+          <span class="card-icon">⚙️</span>
+          <div class="card-title">GPU &amp; Systems Programming</div>
+          <p>CUDA fundamentals, memory hierarchy, kernel optimization. Triton for custom kernels. FlashAttention, FlashDecoding. Distributed training: DDP, FSDP, tensor parallelism.</p>
+          <div class="tag-list"><span class="tag">CUDA</span><span class="tag">Triton</span><span class="tag">FlashAttn</span><span class="tag">FSDP</span></div>
         </div>
         <div class="card">
-          <span class="card-icon">🏋</span>
-          <div class="card-title">RL for Reasoning</div>
-          <p>DeepSeek-R1: pure RL from base model without SFT. GRPO (Group Relative Policy Optimization). "Aha moment" emergence. STILL (Self-Play + RL).</p>
-          <div class="tag-list"><span class="tag">GRPO</span><span class="tag">R1</span><span class="tag">STILL</span><span class="tag">Verifiable Rewards</span></div>
+          <span class="card-icon">🧠</span>
+          <div class="card-title">Reasoning &amp; Chain-of-Thought</div>
+          <p>CoT prompting, Tree-of-Thought, Self-Consistency. Scaling test-time compute. Process reward models vs outcome reward models. Reasoning as search.</p>
+          <div class="tag-list"><span class="tag">CoT</span><span class="tag">ToT</span><span class="tag">Process Rewards</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎮</span>
+          <div class="card-title">Reinforcement Learning</div>
+          <p>Policy gradients, actor-critic, PPO, A3C. RLHF: reward modeling, SFT + RL pipeline. DPO: direct preference optimization. GRPO: group relative policy optimization.</p>
+          <div class="tag-list"><span class="tag">PPO</span><span class="tag">RLHF</span><span class="tag">DPO</span><span class="tag">GRPO</span></div>
         </div>
         <div class="card">
           <span class="card-icon">🤖</span>
-          <div class="card-title">Agentic AI &amp; Tool Use</div>
-          <p>ReAct, Toolformer, function calling APIs. Multi-agent orchestration. Software engineering agents (SWE-Bench, SWE-RL). Memory architectures for long-horizon tasks.</p>
-          <div class="tag-list"><span class="tag">ReAct</span><span class="tag">SWE-Bench</span><span class="tag">Multi-Agent</span><span class="tag">MCP</span></div>
+          <div class="card-title">Agentic Systems</div>
+          <p>ReAct: Reasoning + Acting. Tool use, function calling, code execution. Planning and hierarchical reasoning. Multi-agent systems. Autonomous workflows.</p>
+          <div class="tag-list"><span class="tag">ReAct</span><span class="tag">Tool Use</span><span class="tag">Planning</span><span class="tag">Multi-Agent</span></div>
         </div>
         <div class="card">
           <span class="card-icon">🔍</span>
@@ -507,7 +402,7 @@
         </div>
         <div class="card">
           <span class="card-icon">🎬</span>
-          <div class="card-title">Video &amp; World Models</div>
+          <div class="card-title">Video & World Models</div>
           <p>Sora 2 / Sora 3 architecture (Diffusion Transformer). VideoThinkBench: video generation models for spatial reasoning. Runway Gen-4.5 physics simulation.</p>
           <div class="tag-list"><span class="tag">DiT</span><span class="tag">Sora</span><span class="tag">VideoThink</span><span class="tag">World Models</span></div>
         </div>
@@ -526,12 +421,12 @@
         </div>
         <table>
           <tr><th>Year</th><th>Paper</th><th>Significance</th></tr>
-          <tr><td>2023</td><td>Mamba: Linear-Time Sequence Modeling</td><td>State space alternative to attention — potential successor</td></tr>
-          <tr><td>2023</td><td>Toolformer (Schick et al.)</td><td>Models teaching themselves to use APIs</td></tr>
-          <tr><td>2024</td><td>DeepSeek-R1 (DeepSeek-AI)</td><td>Pure RL-trained reasoner — new training paradigm</td></tr>
-          <tr><td>2024</td><td>GPT-4o Technical Report (OpenAI)</td><td>Omni-modal native multimodality at scale</td></tr>
-          <tr><td>2024</td><td>SWE-Bench Verified</td><td>Gold standard for software engineering agents</td></tr>
-          <tr><td>2025</td><td>DeepSeek-V3 (MoE, open-source)</td><td>Open SOTA — study training efficiency innovations</td></tr>
+          <tr><td>2023</td><td><a href="https://arxiv.org/abs/2312.00752" target="_blank" rel="noopener noreferrer">Mamba: Linear-Time Sequence Modeling</a></td><td>State space alternative to attention — potential successor</td></tr>
+          <tr><td>2023</td><td><a href="https://arxiv.org/abs/2302.04761" target="_blank" rel="noopener noreferrer">Toolformer (Schick et al.)</a></td><td>Models teaching themselves to use APIs</td></tr>
+          <tr><td>2024</td><td><a href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener noreferrer">DeepSeek-R1 (DeepSeek-AI)</a></td><td>Pure RL-trained reasoner — new training paradigm</td></tr>
+          <tr><td>2024</td><td><a href="https://openai.com/index/hello-gpt-4o/" target="_blank" rel="noopener noreferrer">GPT-4o Technical Report (OpenAI)</a></td><td>Omni-modal native multimodality at scale</td></tr>
+          <tr><td>2024</td><td><a href="https://www.swebench.com/" target="_blank" rel="noopener noreferrer">SWE-Bench Verified</a></td><td>Gold standard for software engineering agents</td></tr>
+          <tr><td>2025</td><td><a href="https://arxiv.org/abs/2412.19437" target="_blank" rel="noopener noreferrer">DeepSeek-V3 (MoE, open-source)</a></td><td>Open SOTA — study training efficiency innovations</td></tr>
           <tr><td>2025</td><td>SWE-RL (Software Engineering RL)</td><td>RL for coding; open-book vs closed-book insight</td></tr>
           <tr><td>2025</td><td>VideoThinkBench</td><td>Video generation surpassing VLMs in spatial reasoning</td></tr>
           <tr><td>2025</td><td>Lumina-Video (V2A synthesis)</td><td>Synchronized video-to-audio generation</td></tr>
@@ -555,9 +450,9 @@
         <div class="card">
           <div class="card-title">📚 Courses &amp; Seminars</div>
           <ul class="checklist">
-            <li><span class="check-box"></span><strong>Stanford CME295</strong> — Transformers &amp; LLMs (advanced)</li>
-            <li><span class="check-box"></span><strong>Berkeley CS285</strong> — Deep Reinforcement Learning</li>
-            <li><span class="check-box"></span><strong>CMU 11-713</strong> — Advanced NLP (PhD seminar)</li>
+            <li><span class="check-box"></span><strong><a href="https://cme295.stanford.edu/" target="_blank" rel="noopener noreferrer">Stanford CME295</a></strong> — Transformers &amp; LLMs (advanced)</li>
+            <li><span class="check-box"></span><strong><a href="http://rail.eecs.berkeley.edu/deeprlcourse/" target="_blank" rel="noopener noreferrer">Berkeley CS285</a></strong> — Deep Reinforcement Learning</li>
+            <li><span class="check-box"></span><strong><a href="http://www.cs.cmu.edu/~nasmith/ANLPS/" target="_blank" rel="noopener noreferrer">CMU 11-713</a></strong> — Advanced NLP (PhD seminar)</li>
             <li><span class="check-box"></span><strong>BAIR / CSAIL reading groups</strong> (join or follow online)</li>
             <li><span class="check-box"></span><strong>NeurIPS / ICML / CVPR</strong> — Attend tutorials, workshops</li>
           </ul>
@@ -581,7 +476,6 @@
     <div class="section-divider-line"></div>
   </div>
 
-  <!-- FIX: removed incorrect "p2" phase class; using "skills-section" instead -->
   <div style="margin-bottom:16px" class="skills-section">
     <div class="cards-grid">
       <div class="card">
@@ -628,7 +522,6 @@
 
   <div class="table-card" style="margin-bottom:24px">
     <div class="table-card-header">
-      <!-- FIX: use CSS var instead of inline hex for dot-indicator -->
       <div class="dot-indicator" style="background:var(--accent1);box-shadow:0 0 8px var(--accent1)"></div>
       <span>36-Month Fast-Track Plan</span>
     </div>
@@ -669,7 +562,7 @@
     </div>
   </div>
 
-  <!-- KEY INSIGHT BOX — FIX: replaced all inline styles with .insight-box class -->
+  <!-- KEY INSIGHT BOX -->
   <div class="insight-box">
     <div class="insight-label">// Key Insight: The Fast-Track Strategy</div>
     <div class="insight-text">

@@ -1,6 +1,8 @@
 /* ════════════════════════════════════════════════════════
-   AI/ML PhD Roadmap — Stylesheet
+   AI/ML PhD Roadmap — Enhanced Stylesheet
    Dark theme (default) + Light theme via [data-theme="light"]
+   IMPROVEMENTS: Better link styling, responsive design enhancements,
+   improved hover states, and fixed theme bugs
    ════════════════════════════════════════════════════════ */
 
 /* ── DESIGN TOKENS ── */
@@ -118,6 +120,56 @@ body::before {
   padding: 0 24px;
   position: relative;
   z-index: 1;
+}
+
+/* ════════════════════════════════════════
+   LINKS — ENHANCED STYLING
+   ════════════════════════════════════════ */
+a {
+  color: var(--accent1);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--accent1);
+  border-bottom-color: var(--accent1);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+a:active {
+  opacity: 0.8;
+}
+
+/* Links in tables */
+table a {
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+table a::after {
+  content: '↗';
+  font-size: 0.85em;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+table a:hover::after {
+  opacity: 1;
+}
+
+/* Links in checklists */
+.checklist a {
+  color: var(--accent1);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.checklist a:hover {
+  border-bottom-color: var(--accent1);
 }
 
 /* ════════════════════════════════════════
@@ -327,7 +379,7 @@ h1 {
 .p4 .phase-dot::after { background: var(--accent5); }
 .p4 .phase-title { color: var(--accent5); }
 
-/* Light mode phase dot backgrounds are too dark — override */
+/* Light mode phase dot backgrounds */
 [data-theme="light"] .p0 .phase-dot { background: linear-gradient(135deg, #dbeafe, #eff6ff); }
 [data-theme="light"] .p1 .phase-dot { background: linear-gradient(135deg, #ede9fe, #f5f3ff); }
 [data-theme="light"] .p2 .phase-dot { background: linear-gradient(135deg, #d1fae5, #ecfdf5); }
@@ -360,6 +412,7 @@ h1 {
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border-color: var(--border);
 }
 
 [data-theme="light"] .card:hover {
@@ -391,7 +444,7 @@ h1 {
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 12px;
-  color: var(--text-high);           /* FIX: was hardcoded #f1f5f9 */
+  color: var(--text-high);
   transition: color 0.3s ease;
 }
 
@@ -416,6 +469,7 @@ h1 {
   padding: 3px 10px;
   border-radius: 2px;
   letter-spacing: 0.05em;
+  transition: all 0.2s ease;
 }
 
 .p0 .tag { background: rgba(56,  189, 248, 0.1); color: var(--accent1); border: 1px solid rgba(56,  189, 248, 0.2); }
@@ -423,6 +477,11 @@ h1 {
 .p2 .tag { background: rgba(52,  211, 153, 0.1); color: var(--accent3); border: 1px solid rgba(52,  211, 153, 0.2); }
 .p3 .tag { background: rgba(244, 114, 182, 0.1); color: var(--accent4); border: 1px solid rgba(244, 114, 182, 0.2); }
 .p4 .tag { background: rgba(251, 191, 36,  0.1); color: var(--accent5); border: 1px solid rgba(251, 191, 36,  0.2); }
+
+.tag:hover {
+  background: rgba(56,  189, 248, 0.2);
+  border-color: rgba(56,  189, 248, 0.4);
+}
 
 /* ════════════════════════════════════════
    TABLE CARD
@@ -448,61 +507,55 @@ h1 {
   font-family: 'Syne', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: var(--text-high);           /* FIX: was hardcoded #f1f5f9 */
-  transition: color 0.3s ease;
+  color: var(--text-high);
 }
 
 .dot-indicator {
   width: 8px;
   height: 8px;
   border-radius: 50%;
+  background: var(--accent1);
   flex-shrink: 0;
 }
 
-.p0 .dot-indicator { background: var(--accent1); box-shadow: 0 0 8px var(--accent1); }
-.p1 .dot-indicator { background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
-.p2 .dot-indicator { background: var(--accent3); box-shadow: 0 0 8px var(--accent3); }
-.p3 .dot-indicator { background: var(--accent4); box-shadow: 0 0 8px var(--accent4); }
-.p4 .dot-indicator { background: var(--accent5); box-shadow: 0 0 8px var(--accent5); }
-
-/* ── Table ── */
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
 }
 
-th {
+table th {
   text-align: left;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-family: 'Space Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--muted);
+  border-bottom: 1px solid var(--border-subtle);
   background: var(--surface2);
-  border-bottom: 1px solid var(--border);
   transition: var(--t-theme);
 }
 
-td {
-  padding: 10px 20px;
-  border-bottom: 1px solid var(--border-subtle);  /* FIX: was hardcoded rgba(255,255,255,0.03) */
-  color: var(--text-med);                          /* FIX: was hardcoded #cbd5e1 */
-  vertical-align: top;
+table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 12.5px;
+  color: var(--text-med);
   transition: var(--t-theme);
 }
 
-tr:last-child td { border-bottom: none; }
+table tr:hover td {
+  background: var(--surface-hover);
+}
 
-tr:hover td {
-  background: var(--surface-hover);              /* FIX: was hardcoded rgba(255,255,255,0.02) */
+table tr:last-child td {
+  border-bottom: none;
 }
 
 td:first-child {
   font-family: 'Space Mono', monospace;
   font-size: 11px;
-  color: var(--text-high);                       /* FIX: was hardcoded #f1f5f9 */
+  color: var(--text-high);
   white-space: nowrap;
 }
 
@@ -578,7 +631,7 @@ td:first-child {
 
 .tl-text {
   font-size: 12.5px;
-  color: var(--text-med);            /* FIX: was hardcoded #cbd5e1 */
+  color: var(--text-med);
   transition: color 0.3s ease;
 }
 
@@ -622,7 +675,7 @@ td:first-child {
 
 .progress-bar {
   height: 4px;
-  background: var(--progress-track);  /* FIX: was hardcoded rgba(255,255,255,0.06) */
+  background: var(--progress-track);
   border-radius: 2px;
   overflow: hidden;
   transition: background 0.3s ease;
@@ -632,7 +685,7 @@ td:first-child {
   height: 100%;
   border-radius: 2px;
   animation: fillBar 1.5s ease-out forwards;
-  transform-origin: left center;      /* FIX: added 'center' to prevent clipping */
+  transform-origin: left center;
 }
 
 @keyframes fillBar {
@@ -688,7 +741,7 @@ td:first-child {
   font-weight: 700;
   font-size: 15px;
   margin-bottom: 8px;
-  color: var(--text-high);           /* FIX: was hardcoded #f1f5f9 */
+  color: var(--text-high);
   transition: color 0.3s ease;
 }
 .outcome-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
@@ -700,7 +753,7 @@ td:first-child {
   background: linear-gradient(135deg,
     rgba(56,  189, 248, 0.05),
     rgba(167, 139, 250, 0.05));
-  border: 1px solid var(--border);   /* FIX: was hardcoded rgba(255,255,255,0.08) */
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 28px;
   margin: 32px 0;
@@ -772,16 +825,16 @@ footer p {
   align-items: flex-start;
   gap: 10px;
   font-size: 12.5px;
-  color: var(--text-low);            /* FIX: was hardcoded #94a3b8 */
+  color: var(--text-low);
   padding: 5px 0;
-  border-bottom: 1px solid var(--border-subtle); /* FIX: was hardcoded rgba(255,255,255,0.03) */
+  border-bottom: 1px solid var(--border-subtle);
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .checklist li:last-child { border-bottom: none; }
 
 .checklist li strong {
-  color: var(--text-high);           /* FIX: was hardcoded #e2e8f0 */
+  color: var(--text-high);
   transition: color 0.3s ease;
 }
 
@@ -809,7 +862,7 @@ footer p {
 code {
   font-family: 'Space Mono', monospace;
   font-size: 11px;
-  background: var(--code-bg);        /* FIX: was hardcoded rgba(255,255,255,0.05) */
+  background: var(--code-bg);
   padding: 2px 6px;
   border-radius: 3px;
   color: var(--accent3);
@@ -824,7 +877,7 @@ code {
   align-items: flex-start;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 1px solid var(--border-subtle); /* FIX: was hardcoded rgba(255,255,255,0.04) */
+  border-bottom: 1px solid var(--border-subtle);
   transition: border-color 0.3s ease;
 }
 
@@ -876,9 +929,34 @@ code {
 
   /* Sprint schedule grid on mobile */
   .sprint-inner { grid-template-columns: 1fr !important; }
+
+  /* Better table scrolling on mobile */
+  .table-card {
+    overflow-x: auto;
+  }
+
+  table {
+    font-size: 11px;
+  }
+
+  table th, table td {
+    padding: 8px 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   header     { padding: 60px 0 40px; }
+  
+  /* Stack outcome grid on very small screens */
+  .outcome-grid { grid-template-columns: 1fr; }
+  
+  /* Adjust font sizes for mobile */
+  h1 { font-size: 1.5rem; }
+  .subtitle { font-size: 12px; }
+  
+  /* Better link display on mobile */
+  a {
+    word-break: break-word;
+  }
 }
