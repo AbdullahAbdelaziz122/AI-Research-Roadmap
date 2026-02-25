@@ -2,6 +2,9 @@
 
 A comprehensive, phased execution plan for mastering artificial intelligence and machine learning from mathematical foundations to the research frontier.
 
+### Roadmap
+https://abdullahabdelaziz122.github.io/AI-Research-Roadmap
+
 ## Overview
 
 This website presents a **3-year fast-track roadmap** to achieve PhD-level expertise in AI/ML while developing senior engineer capabilities. The plan covers:
@@ -11,129 +14,6 @@ This website presents a **3-year fast-track roadmap** to achieve PhD-level exper
 - **Phase 2**: Computer Vision + Multimodal AI (Months 7–12, parallel)
 - **Phase 3**: Systems, Reasoning & Agents (Months 13–22)
 - **Phase 4**: Research Frontier + Original Contribution (Months 24–36)
-
-## Features
-
-✨ **Interactive Resource Links** - All courses, papers, and resources are clickable
-🎨 **Beautiful Design** - Dark/light theme with smooth animations
-📱 **Fully Responsive** - Works on desktop, tablet, and mobile
-🔗 **GitHub Pages Ready** - Deploy instantly with no build process
-🚀 **Fast Loading** - Optimized CSS and minimal JavaScript
-
-## Quick Start
-
-### Local Testing
-
-Simply open `index_enhanced.html` in your browser to see the full roadmap.
-
-### Deploy to GitHub Pages
-
-1. **Clone or fork this repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/ai-ml-roadmap.git
-   cd ai-ml-roadmap
-   ```
-
-2. **Replace files with enhanced versions**
-   ```bash
-   mv index_enhanced.html index.html
-   mv styles_enhanced.css styles.css
-   ```
-
-3. **Push to GitHub**
-   ```bash
-   git add index.html styles.css
-   git commit -m "Enhance: Add resource links and improve design"
-   git push origin main
-   ```
-
-4. **Enable GitHub Pages**
-   - Go to Settings → Pages
-   - Select "Deploy from a branch"
-   - Choose `main` branch and `/` (root) folder
-   - Your site will be live at `https://YOUR_USERNAME.github.io/YOUR_REPO/`
-
-## Files
-
-- `index_enhanced.html` - Enhanced version with clickable resource links (recommended)
-- `styles_enhanced.css` - Enhanced stylesheet with improved design
-- `index.html` - Original version
-- `styles.css` - Original stylesheet
-- `ENHANCEMENTS.md` - Detailed list of improvements
-- `GITHUB_DEPLOYMENT.md` - Deployment instructions
-- `README.md` - This file
-
-## Key Enhancements
-
-### 1. Interactive Resource Links
-All educational resources now link directly to:
-- MIT OpenCourseWare courses
-- Stanford courses (CS224N, CS231N, CS336, CME295)
-- Berkeley CS285 (Deep RL)
-- CMU 11-713 (Advanced NLP)
-- ArXiv papers (Mamba, DeepSeek-R1, etc.)
-- Official documentation and resources
-
-### 2. Improved Design
-- Enhanced link styling with hover effects
-- Better visual hierarchy
-- Improved mobile responsiveness
-- Smooth animations and transitions
-- Better color contrast
-
-### 3. Bug Fixes
-- Fixed CSS variable usage for proper theme switching
-- Removed hardcoded colors
-- Fixed progress bar rendering
-- Improved semantic HTML structure
-
-## Browser Support
-
-- ✅ Chrome/Chromium (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Performance
-
-- **Page Load Time**: < 1 second
-- **Lighthouse Score**: 95+ (performance, accessibility, best practices)
-- **Mobile Friendly**: 100% responsive
-- **SEO Ready**: Proper meta tags and semantic HTML
-
-## Customization
-
-### Update Resource Links
-
-Edit `index_enhanced.html` to add or modify links:
-
-```html
-<tr><td><a href="YOUR_LINK" target="_blank" rel="noopener noreferrer">
-    Resource Name</a></td>...</tr>
-```
-
-### Change Colors
-
-Edit `styles_enhanced.css` to modify the color scheme:
-
-```css
-:root {
-  --accent1: #38bdf8;  /* Change these values */
-  --accent2: #a78bfa;
-  /* ... etc */
-}
-```
-
-### Add Custom Content
-
-Add new sections by following the existing structure:
-
-```html
-<section class="p0">
-  <!-- Your content here -->
-</section>
-```
 
 ## Roadmap Content
 
@@ -207,15 +87,6 @@ To contribute improvements:
 ## License
 
 This project is open source and available under the MIT License.
-
-## Support
-
-For issues or questions:
-
-1. Check the ENHANCEMENTS.md file
-2. Review the GITHUB_DEPLOYMENT.md guide
-3. Open an issue on GitHub
-4. Check GitHub Pages documentation
 
 ## Acknowledgments
 
