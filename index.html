@@ -1,655 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI/ML PhD + Senior Engineer Roadmap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #050810;
-    --surface: #0c1120;
-    --surface2: #111827;
-    --border: rgba(99, 179, 237, 0.15);
-    --accent1: #38bdf8;
-    --accent2: #a78bfa;
-    --accent3: #34d399;
-    --accent4: #f472b6;
-    --accent5: #fbbf24;
-    --text: #e2e8f0;
-    --muted: #64748b;
-    --glow1: rgba(56, 189, 248, 0.15);
-    --glow2: rgba(167, 139, 250, 0.15);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* Ambient background */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 90% 100%, rgba(167, 139, 250, 0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ── HEADER ── */
-  header {
-    padding: 80px 0 60px;
-    text-align: center;
-    position: relative;
-  }
-
-  .badge {
-    display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent1);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 6px 16px;
-    border-radius: 2px;
-    margin-bottom: 28px;
-    background: rgba(56, 189, 248, 0.05);
-  }
-
-  h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #e2e8f0 30%, var(--accent1) 70%, var(--accent2) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 20px;
-  }
-
-  .subtitle {
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    color: var(--muted);
-    max-width: 600px;
-    margin: 0 auto 40px;
-    letter-spacing: 0.05em;
-  }
-
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-val {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--accent1);
-    display: block;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* ── TIMELINE SPINE ── */
-  .timeline {
-    position: relative;
-    padding: 20px 0 60px;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--accent1), var(--accent2), var(--accent3), var(--accent4), var(--accent5), transparent);
-    transform: translateX(-50%);
-    opacity: 0.4;
-  }
-
-  /* ── PHASE HEADER ── */
-  .phase-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin: 60px 0 32px;
-    position: relative;
-  }
-
-  .phase-dot {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    position: relative;
-    z-index: 2;
-    flex-shrink: 0;
-  }
-
-  .phase-dot::after {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: pulse 3s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.3); opacity: 0.1; }
-  }
-
-  .phase-title-wrap {
-    text-align: center;
-  }
-
-  .phase-label {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.6;
-    font-family: 'Space Mono', monospace;
-  }
-
-  .phase-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-  }
-
-  /* Colors per phase */
-  .p0 .phase-dot { background: linear-gradient(135deg, #1e293b, #0f1f35); border: 2px solid var(--accent1); color: var(--accent1); }
-  .p0 .phase-dot::after { background: var(--accent1); border: 2px solid var(--accent1); }
-  .p0 .phase-title { color: var(--accent1); }
-
-  .p1 .phase-dot { background: linear-gradient(135deg, #1a1040, #0f0a2a); border: 2px solid var(--accent2); color: var(--accent2); }
-  .p1 .phase-dot::after { background: var(--accent2); }
-  .p1 .phase-title { color: var(--accent2); }
-
-  .p2 .phase-dot { background: linear-gradient(135deg, #0a2018, #051510); border: 2px solid var(--accent3); color: var(--accent3); }
-  .p2 .phase-dot::after { background: var(--accent3); }
-  .p2 .phase-title { color: var(--accent3); }
-
-  .p3 .phase-dot { background: linear-gradient(135deg, #2a0f1e, #1a0510); border: 2px solid var(--accent4); color: var(--accent4); }
-  .p3 .phase-dot::after { background: var(--accent4); }
-  .p3 .phase-title { color: var(--accent4); }
-
-  .p4 .phase-dot { background: linear-gradient(135deg, #2a1f05, #1a1205); border: 2px solid var(--accent5); color: var(--accent5); }
-  .p4 .phase-dot::after { background: var(--accent5); }
-  .p4 .phase-title { color: var(--accent5); }
-
-  /* ── CARDS GRID ── */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .card-full { grid-column: 1 / -1; }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .card:hover {
-    transform: translateY(-2px);
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-  }
-
-  /* phase accent lines */
-  .p0 .card::before { background: linear-gradient(90deg, transparent, var(--accent1), transparent); }
-  .p1 .card::before { background: linear-gradient(90deg, transparent, var(--accent2), transparent); }
-  .p2 .card::before { background: linear-gradient(90deg, transparent, var(--accent3), transparent); }
-  .p3 .card::before { background: linear-gradient(90deg, transparent, var(--accent4), transparent); }
-  .p4 .card::before { background: linear-gradient(90deg, transparent, var(--accent5), transparent); }
-
-  .card-icon {
-    font-size: 20px;
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  .card-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #f1f5f9;
-  }
-
-  .card p {
-    font-size: 12.5px;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-
-  .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 10px;
-  }
-
-  .tag {
-    font-size: 10.5px;
-    font-family: 'Space Mono', monospace;
-    padding: 3px 10px;
-    border-radius: 2px;
-    letter-spacing: 0.05em;
-  }
-
-  .p0 .tag { background: rgba(56, 189, 248, 0.1); color: var(--accent1); border: 1px solid rgba(56,189,248,0.2); }
-  .p1 .tag { background: rgba(167, 139, 250, 0.1); color: var(--accent2); border: 1px solid rgba(167,139,250,0.2); }
-  .p2 .tag { background: rgba(52, 211, 153, 0.1); color: var(--accent3); border: 1px solid rgba(52,211,153,0.2); }
-  .p3 .tag { background: rgba(244, 114, 182, 0.1); color: var(--accent4); border: 1px solid rgba(244,114,182,0.2); }
-  .p4 .tag { background: rgba(251, 191, 36, 0.1); color: var(--accent5); border: 1px solid rgba(251,191,36,0.2); }
-
-  /* ── TABLE CARD ── */
-  .table-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 16px;
-  }
-
-  .table-card-header {
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .table-card-header span {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #f1f5f9;
-  }
-
-  .dot-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .p0 .dot-indicator { background: var(--accent1); box-shadow: 0 0 8px var(--accent1); }
-  .p1 .dot-indicator { background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
-  .p2 .dot-indicator { background: var(--accent3); box-shadow: 0 0 8px var(--accent3); }
-  .p3 .dot-indicator { background: var(--accent4); box-shadow: 0 0 8px var(--accent4); }
-  .p4 .dot-indicator { background: var(--accent5); box-shadow: 0 0 8px var(--accent5); }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-
-  th {
-    text-align: left;
-    padding: 10px 20px;
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    background: var(--surface2);
-    border-bottom: 1px solid var(--border);
-  }
-
-  td {
-    padding: 10px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-    color: #cbd5e1;
-    vertical-align: top;
-  }
-
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: rgba(255,255,255,0.02); }
-
-  td:first-child {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: #f1f5f9;
-    white-space: nowrap;
-  }
-
-  /* ── MILESTONE BANNER ── */
-  .milestone {
-    border-radius: 8px;
-    padding: 18px 24px;
-    margin: 16px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .p0 .milestone { background: rgba(56,189,248,0.07); border: 1px solid rgba(56,189,248,0.2); }
-  .p1 .milestone { background: rgba(167,139,250,0.07); border: 1px solid rgba(167,139,250,0.2); }
-  .p2 .milestone { background: rgba(52,211,153,0.07); border: 1px solid rgba(52,211,153,0.2); }
-  .p3 .milestone { background: rgba(244,114,182,0.07); border: 1px solid rgba(244,114,182,0.2); }
-  .p4 .milestone { background: rgba(251,191,36,0.07); border: 1px solid rgba(251,191,36,0.2); }
-
-  .milestone-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-
-  .milestone-title {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-    opacity: 0.7;
-  }
-
-  .milestone-text {
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  /* ── TIMELINE BLOCK ── */
-  .timeline-block {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 10px 0;
-    border-left: 2px solid var(--border);
-    padding-left: 20px;
-    margin-left: 12px;
-    margin-bottom: 6px;
-    position: relative;
-  }
-
-  .timeline-block::before {
-    content: '';
-    position: absolute;
-    left: -5px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--muted);
-  }
-
-  .tl-month {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    white-space: nowrap;
-    min-width: 60px;
-  }
-
-  .tl-text {
-    font-size: 12.5px;
-    color: #cbd5e1;
-  }
-
-  /* ── SECTION DIVIDER ── */
-  .section-divider {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 48px 0 32px;
-  }
-
-  .section-divider-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .section-divider-text {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* ── PROGRESS BAR ── */
-  .progress-wrap {
-    margin: 6px 0 12px;
-  }
-
-  .progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: var(--muted);
-    margin-bottom: 5px;
-  }
-
-  .progress-bar {
-    height: 4px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    border-radius: 2px;
-    animation: fillBar 1.5s ease-out forwards;
-    transform-origin: left;
-  }
-
-  @keyframes fillBar {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
-
-  .p0 .progress-fill { background: linear-gradient(90deg, var(--accent1), rgba(56,189,248,0.5)); }
-  .p1 .progress-fill { background: linear-gradient(90deg, var(--accent2), rgba(167,139,250,0.5)); }
-  .p2 .progress-fill { background: linear-gradient(90deg, var(--accent3), rgba(52,211,153,0.5)); }
-  .p3 .progress-fill { background: linear-gradient(90deg, var(--accent4), rgba(244,114,182,0.5)); }
-  .p4 .progress-fill { background: linear-gradient(90deg, var(--accent5), rgba(251,191,36,0.5)); }
-
-  /* ── FINAL OUTCOME ── */
-  .outcome-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 32px 0;
-  }
-
-  .outcome-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .outcome-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-  }
-
-  .oc1::after { background: var(--accent1); }
-  .oc2::after { background: var(--accent2); }
-  .oc3::after { background: var(--accent3); }
-
-  .outcome-icon { font-size: 28px; margin-bottom: 12px; }
-  .outcome-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    margin-bottom: 8px;
-    color: #f1f5f9;
-  }
-  .outcome-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-  /* ── FOOTER ── */
-  footer {
-    text-align: center;
-    padding: 60px 0 40px;
-    border-top: 1px solid var(--border);
-    margin-top: 60px;
-  }
-
-  footer p {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
-  /* ── CHECKLIST ── */
-  .checklist {
-    list-style: none;
-    margin-top: 12px;
-  }
-
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 12.5px;
-    color: #94a3b8;
-    padding: 5px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-  }
-
-  .checklist li:last-child { border-bottom: none; }
-
-  .check-box {
-    width: 14px;
-    height: 14px;
-    border-radius: 2px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .p0 .check-box { border: 1.5px solid var(--accent1); }
-  .p1 .check-box { border: 1.5px solid var(--accent2); }
-  .p2 .check-box { border: 1.5px solid var(--accent3); }
-  .p3 .check-box { border: 1.5px solid var(--accent4); }
-  .p4 .check-box { border: 1.5px solid var(--accent5); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .cards-grid { grid-template-columns: 1fr; }
-    .outcome-grid { grid-template-columns: 1fr; }
-    .timeline::before { left: 20px; }
-    .phase-header { flex-direction: column; }
-    .stats-row { gap: 24px; }
-    h1 { font-size: 2rem; }
-  }
-
-  /* ── CODE INLINE ── */
-  code {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    background: rgba(255,255,255,0.05);
-    padding: 2px 6px;
-    border-radius: 3px;
-    color: var(--accent3);
-  }
-
-  /* ── PAPER CARD (full-width reading) ── */
-  .paper-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-  }
-  .paper-row:last-child { border-bottom: none; }
-  .paper-year {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    white-space: nowrap;
-    min-width: 36px;
-    margin-top: 2px;
-  }
-  .paper-title {
-    font-size: 12.5px;
-    color: #e2e8f0;
-    font-weight: 500;
-  }
-  .paper-sub {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- ════ THEME TOGGLE ════ -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <span class="toggle-icon" id="toggleIcon">☀️</span>
+  <span id="toggleLabel">Light</span>
+</button>
 
 <div class="container">
 
@@ -741,14 +106,14 @@
 
       <div class="card card-full">
         <div class="card-title">⏱ 3-Month Sprint Schedule</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="sprint-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
           <div>
             <div class="timeline-block"><span class="tl-month">M1 W1–2</span><span class="tl-text">Linear Algebra: vectors, matrices, transformations, SVD, PCA — Strang lectures + exercises</span></div>
             <div class="timeline-block"><span class="tl-month">M1 W3–4</span><span class="tl-text">Eigendecomposition, tensor basics, group theory intro for geometric deep learning</span></div>
             <div class="timeline-block"><span class="tl-month">M2 W1–2</span><span class="tl-text">Multivariable calculus: gradients, Jacobians, Hessians. Derive backprop manually.</span></div>
           </div>
           <div>
-            <div class="timeline-block"><span class="tl-month">M2 W3–4</span><span class="tl-text">Probability & statistics: distributions, Bayes, Gaussian processes, MLE/MAP</span></div>
+            <div class="timeline-block"><span class="tl-month">M2 W3–4</span><span class="tl-text">Probability &amp; statistics: distributions, Bayes, Gaussian processes, MLE/MAP</span></div>
             <div class="timeline-block"><span class="tl-month">M3 W1–2</span><span class="tl-text">Information theory: entropy, KL divergence, cross-entropy. Implement soft targets, label smoothing.</span></div>
             <div class="timeline-block"><span class="tl-month">M3 W3–4</span><span class="tl-text">Optimization theory: SGD, Adam, learning rate schedules, non-convex landscapes. Read original Adam paper.</span></div>
           </div>
@@ -810,7 +175,7 @@
         </div>
         <div class="card">
           <span class="card-icon">🎓</span>
-          <div class="card-title">Alignment & RLHF</div>
+          <div class="card-title">Alignment &amp; RLHF</div>
           <p>Instruction tuning, SFT, PPO-based RLHF, DPO. Understand why reward models fail and what Constitutional AI solves. Read InstructGPT paper carefully.</p>
           <div class="tag-list"><span class="tag">DPO</span><span class="tag">RLHF</span><span class="tag">SFT</span><span class="tag">PPO</span></div>
         </div>
@@ -837,7 +202,7 @@
           <tr><td>2022</td><td>Chain-of-Thought Prompting (Wei et al.)</td><td>Foundation of LLM reasoning capabilities</td></tr>
           <tr><td>2022</td><td>InstructGPT (Ouyang et al.)</td><td>RLHF for alignment — landmark paper</td></tr>
           <tr><td>2023</td><td>DPO (Rafailov et al.)</td><td>Modern alignment standard without RL</td></tr>
-          <tr><td>2023</td><td>LLaMA 1 & 2 (Meta)</td><td>Open-source SOTA; study the architecture choices</td></tr>
+          <tr><td>2023</td><td>LLaMA 1 &amp; 2 (Meta)</td><td>Open-source SOTA; study the architecture choices</td></tr>
           <tr><td>2024</td><td>Llama 3 / Qwen 2 Technical Reports</td><td>State-of-the-art open model training pipelines</td></tr>
         </table>
       </div>
@@ -857,11 +222,11 @@
         <div class="card">
           <div class="card-title">📚 Courses</div>
           <ul class="checklist">
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CS224N</strong> — NLP with Deep Learning (primary)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CME295</strong> — Transformers & LLMs (supplement)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">fast.ai Part 1</strong> — Practical Deep Learning (code-first grounding)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Andrej Karpathy</strong> — Neural Nets: Zero to Hero (YouTube)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">CMU 11-711</strong> — Advanced NLP (PhD-level supplement)</li>
+            <li><span class="check-box"></span><strong>Stanford CS224N</strong> — NLP with Deep Learning (primary)</li>
+            <li><span class="check-box"></span><strong>Stanford CME295</strong> — Transformers &amp; LLMs (supplement)</li>
+            <li><span class="check-box"></span><strong>fast.ai Part 1</strong> — Practical Deep Learning (code-first grounding)</li>
+            <li><span class="check-box"></span><strong>Andrej Karpathy</strong> — Neural Nets: Zero to Hero (YouTube)</li>
+            <li><span class="check-box"></span><strong>CMU 11-711</strong> — Advanced NLP (PhD-level supplement)</li>
           </ul>
         </div>
       </div>
@@ -897,13 +262,13 @@
       <div class="cards-grid">
         <div class="card">
           <span class="card-icon">🖼</span>
-          <div class="card-title">Classical Vision & Signals</div>
+          <div class="card-title">Classical Vision &amp; Signals</div>
           <p>Images as signals. Linear filters, Fourier transforms, image pyramids, edge detection, SIFT, HOG. Physics of image formation, pinhole cameras.</p>
           <div class="tag-list"><span class="tag">Fourier</span><span class="tag">Filters</span><span class="tag">SIFT</span><span class="tag">Camera Model</span></div>
         </div>
         <div class="card">
           <span class="card-icon">🏗</span>
-          <div class="card-title">CNNs & Deep Architectures</div>
+          <div class="card-title">CNNs &amp; Deep Architectures</div>
           <p>AlexNet → VGG → ResNet (residual connections) → EfficientNet → ConvNeXt. Understand local receptive fields, weight sharing, pooling strategies.</p>
           <div class="tag-list"><span class="tag">ResNet</span><span class="tag">ConvNeXt</span><span class="tag">Batch Norm</span></div>
         </div>
@@ -915,7 +280,7 @@
         </div>
         <div class="card">
           <span class="card-icon">🌐</span>
-          <div class="card-title">Multimodal: CLIP & Beyond</div>
+          <div class="card-title">Multimodal: CLIP &amp; Beyond</div>
           <p>Contrastive Language-Image Pre-training. Zero-shot classification, image-text retrieval, visual question answering. BLIP, BLIP-2, LLaVA, GPT-4V.</p>
           <div class="tag-list"><span class="tag">CLIP</span><span class="tag">LLaVA</span><span class="tag">VQA</span><span class="tag">Contrastive</span></div>
         </div>
@@ -927,7 +292,7 @@
         </div>
         <div class="card">
           <span class="card-icon">🧊</span>
-          <div class="card-title">3D Vision & Scene Reconstruction</div>
+          <div class="card-title">3D Vision &amp; Scene Reconstruction</div>
           <p>NeRF, Instant-NGP, 3D Gaussian Splatting. Projective geometry, fundamental matrix, eight-point algorithm, structure-from-motion (SfM).</p>
           <div class="tag-list"><span class="tag">NeRF</span><span class="tag">Gaussian Splatting</span><span class="tag">SfM</span><span class="tag">MVS</span></div>
         </div>
@@ -968,11 +333,11 @@
         <div class="card">
           <div class="card-title">📚 Courses</div>
           <ul class="checklist">
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CS231N</strong> — CNNs for Visual Recognition (primary)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">MIT 6.869</strong> — Advances in Computer Vision</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">CMU 16-825</strong> — Learning for 3D Vision</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">CVPR / ECCV tutorials</strong> — Diffusion models, NeRF workshops</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Justin Johnson — EECS 498</strong> (Michigan, free videos)</li>
+            <li><span class="check-box"></span><strong>Stanford CS231N</strong> — CNNs for Visual Recognition (primary)</li>
+            <li><span class="check-box"></span><strong>MIT 6.869</strong> — Advances in Computer Vision</li>
+            <li><span class="check-box"></span><strong>CMU 16-825</strong> — Learning for 3D Vision</li>
+            <li><span class="check-box"></span><strong>CVPR / ECCV tutorials</strong> — Diffusion models, NeRF workshops</li>
+            <li><span class="check-box"></span><strong>Justin Johnson — EECS 498</strong> (Michigan, free videos)</li>
           </ul>
         </div>
       </div>
@@ -993,7 +358,7 @@
         <div class="phase-dot">3</div>
         <div class="phase-title-wrap">
           <div class="phase-label">// Phase Three · Months 12–20</div>
-          <div class="phase-title">Systems, Infrastructure & Scale</div>
+          <div class="phase-title">Systems, Infrastructure &amp; Scale</div>
         </div>
       </div>
 
@@ -1008,7 +373,7 @@
       <div class="cards-grid">
         <div class="card">
           <span class="card-icon">💾</span>
-          <div class="card-title">GPU Architecture & Memory</div>
+          <div class="card-title">GPU Architecture &amp; Memory</div>
           <p>CUDA programming model: warps, SMs, shared memory. The HBM → SRAM hierarchy. Understand memory bandwidth bottlenecks that define training speed.</p>
           <div class="tag-list"><span class="tag">CUDA</span><span class="tag">SRAM</span><span class="tag">HBM</span><span class="tag">Warps</span></div>
         </div>
@@ -1026,7 +391,7 @@
         </div>
         <div class="card">
           <span class="card-icon">🔤</span>
-          <div class="card-title">Tokenization & Data Engineering</div>
+          <div class="card-title">Tokenization &amp; Data Engineering</div>
           <p>BPE, WordPiece, SentencePiece. Build a tokenizer from scratch. Data curation: Common Crawl filtering, deduplication, quality scoring, domain mixing.</p>
           <div class="tag-list"><span class="tag">BPE</span><span class="tag">SentencePiece</span><span class="tag">Dedup</span><span class="tag">FineWeb</span></div>
         </div>
@@ -1038,7 +403,7 @@
         </div>
         <div class="card">
           <span class="card-icon">🗜</span>
-          <div class="card-title">Quantization & Efficiency</div>
+          <div class="card-title">Quantization &amp; Efficiency</div>
           <p>FP8, BF16 mixed precision. Post-training quantization: GPTQ, AWQ. QLoRA for efficient fine-tuning. Speculative decoding for faster inference.</p>
           <div class="tag-list"><span class="tag">GPTQ</span><span class="tag">AWQ</span><span class="tag">QLoRA</span><span class="tag">FP8</span></div>
         </div>
@@ -1076,13 +441,13 @@
           </ul>
         </div>
         <div class="card">
-          <div class="card-title">📚 Courses & Resources</div>
+          <div class="card-title">📚 Courses &amp; Resources</div>
           <ul class="checklist">
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CS336</strong> — Language Modeling from Scratch (primary)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">CUDA Programming Guide</strong> (NVIDIA docs)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Triton documentation + tutorials</strong> (OpenAI / triton-lang)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">HuggingFace Ultra-Scale Playbook</strong></li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Sasha Rush — miniGPT / annotated transformer</strong></li>
+            <li><span class="check-box"></span><strong>Stanford CS336</strong> — Language Modeling from Scratch (primary)</li>
+            <li><span class="check-box"></span><strong>CUDA Programming Guide</strong> (NVIDIA docs)</li>
+            <li><span class="check-box"></span><strong>Triton documentation + tutorials</strong> (OpenAI / triton-lang)</li>
+            <li><span class="check-box"></span><strong>HuggingFace Ultra-Scale Playbook</strong></li>
+            <li><span class="check-box"></span><strong>Sasha Rush — miniGPT / annotated transformer</strong></li>
           </ul>
         </div>
       </div>
@@ -1103,7 +468,7 @@
         <div class="phase-dot">4</div>
         <div class="phase-title-wrap">
           <div class="phase-label">// Phase Four · Months 20–30</div>
-          <div class="phase-title">Reasoning, Agents & Research Frontier</div>
+          <div class="phase-title">Reasoning, Agents &amp; Research Frontier</div>
         </div>
       </div>
 
@@ -1118,7 +483,7 @@
       <div class="cards-grid">
         <div class="card">
           <span class="card-icon">🤔</span>
-          <div class="card-title">Reasoning & Chain-of-Thought</div>
+          <div class="card-title">Reasoning &amp; Chain-of-Thought</div>
           <p>CoT, self-consistency, tree-of-thought, process reward models (PRM) vs outcome reward models (ORM). The "Open-Book Paradox" — why closed-book training builds stronger reasoners.</p>
           <div class="tag-list"><span class="tag">CoT</span><span class="tag">PRM</span><span class="tag">ORM</span><span class="tag">Self-Consistency</span></div>
         </div>
@@ -1130,25 +495,25 @@
         </div>
         <div class="card">
           <span class="card-icon">🤖</span>
-          <div class="card-title">Agentic AI & Tool Use</div>
+          <div class="card-title">Agentic AI &amp; Tool Use</div>
           <p>ReAct, Toolformer, function calling APIs. Multi-agent orchestration. Software engineering agents (SWE-Bench, SWE-RL). Memory architectures for long-horizon tasks.</p>
           <div class="tag-list"><span class="tag">ReAct</span><span class="tag">SWE-Bench</span><span class="tag">Multi-Agent</span><span class="tag">MCP</span></div>
         </div>
         <div class="card">
           <span class="card-icon">🔍</span>
-          <div class="card-title">RAG & Knowledge Grounding</div>
+          <div class="card-title">RAG &amp; Knowledge Grounding</div>
           <p>Retrieval-Augmented Generation: dense retrieval, hybrid search, re-ranking. Advanced RAG: HyDE, RAPTOR, agentic RAG. Reducing hallucinations in production.</p>
           <div class="tag-list"><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">HyDE</span><span class="tag">RAPTOR</span></div>
         </div>
         <div class="card">
           <span class="card-icon">🎬</span>
-          <div class="card-title">Video & World Models</div>
+          <div class="card-title">Video &amp; World Models</div>
           <p>Sora 2 / Sora 3 architecture (Diffusion Transformer). VideoThinkBench: video generation models for spatial reasoning. Runway Gen-4.5 physics simulation.</p>
           <div class="tag-list"><span class="tag">DiT</span><span class="tag">Sora</span><span class="tag">VideoThink</span><span class="tag">World Models</span></div>
         </div>
         <div class="card">
           <span class="card-icon">🔬</span>
-          <div class="card-title">Interpretability & Safety</div>
+          <div class="card-title">Interpretability &amp; Safety</div>
           <p>Mechanistic interpretability: circuits, superposition, feature visualization. Anthropic's sparse autoencoders. Constitutional AI, Debate, scalable oversight methods.</p>
           <div class="tag-list"><span class="tag">Circuits</span><span class="tag">SAE</span><span class="tag">CAI</span><span class="tag">Oversight</span></div>
         </div>
@@ -1184,17 +549,17 @@
             <li><span class="check-box"></span>Build an advanced RAG pipeline; benchmark vs naive RAG</li>
             <li><span class="check-box"></span>Run mechanistic interpretability on a 1B model (TransformerLens)</li>
             <li><span class="check-box"></span>Submit to a SWE-Bench leaderboard</li>
-            <li><span class="check-box"></span><strong style="color:#fbbf24">Write and submit a research paper</strong></li>
+            <li><span class="check-box"></span><strong style="color:var(--accent5)">Write and submit a research paper</strong></li>
           </ul>
         </div>
         <div class="card">
-          <div class="card-title">📚 Courses & Seminars</div>
+          <div class="card-title">📚 Courses &amp; Seminars</div>
           <ul class="checklist">
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CME295</strong> — Transformers & LLMs (advanced)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">Berkeley CS285</strong> — Deep Reinforcement Learning</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">CMU 11-713</strong> — Advanced NLP (PhD seminar)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">BAIR / CSAIL reading groups</strong> (join or follow online)</li>
-            <li><span class="check-box"></span><strong style="color:#e2e8f0">NeurIPS / ICML / CVPR</strong> — Attend tutorials, workshops</li>
+            <li><span class="check-box"></span><strong>Stanford CME295</strong> — Transformers &amp; LLMs (advanced)</li>
+            <li><span class="check-box"></span><strong>Berkeley CS285</strong> — Deep Reinforcement Learning</li>
+            <li><span class="check-box"></span><strong>CMU 11-713</strong> — Advanced NLP (PhD seminar)</li>
+            <li><span class="check-box"></span><strong>BAIR / CSAIL reading groups</strong> (join or follow online)</li>
+            <li><span class="check-box"></span><strong>NeurIPS / ICML / CVPR</strong> — Attend tutorials, workshops</li>
           </ul>
         </div>
       </div>
@@ -1216,19 +581,20 @@
     <div class="section-divider-line"></div>
   </div>
 
-  <div style="margin-bottom:16px" class="p2">
+  <!-- FIX: removed incorrect "p2" phase class; using "skills-section" instead -->
+  <div style="margin-bottom:16px" class="skills-section">
     <div class="cards-grid">
       <div class="card">
         <span class="card-icon">🐍</span>
-        <div class="card-title">Python & ML Stack</div>
-        <p>PyTorch (primary), JAX, Triton. Hugging Face Transformers, Datasets, PEFT. Weights & Biases, MLflow for experiment tracking. High-performance Python profiling.</p>
+        <div class="card-title">Python &amp; ML Stack</div>
+        <p>PyTorch (primary), JAX, Triton. Hugging Face Transformers, Datasets, PEFT. Weights &amp; Biases, MLflow for experiment tracking. High-performance Python profiling.</p>
         <div class="tag-list">
-          <span class="tag">PyTorch</span><span class="tag">JAX</span><span class="tag">HuggingFace</span><span class="tag">W&B</span>
+          <span class="tag">PyTorch</span><span class="tag">JAX</span><span class="tag">HuggingFace</span><span class="tag">W&amp;B</span>
         </div>
       </div>
       <div class="card">
         <span class="card-icon">☁️</span>
-        <div class="card-title">Cloud & Infra</div>
+        <div class="card-title">Cloud &amp; Infra</div>
         <p>AWS / GCP / Azure GPU instances. Kubernetes for ML workloads. Docker containerization. Terraform infrastructure-as-code. CI/CD for model pipelines.</p>
         <div class="tag-list">
           <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">K8s</span><span class="tag">CI/CD</span>
@@ -1236,7 +602,7 @@
       </div>
       <div class="card">
         <span class="card-icon">🚀</span>
-        <div class="card-title">Model Serving & Deployment</div>
+        <div class="card-title">Model Serving &amp; Deployment</div>
         <p>vLLM, TGI (Text Generation Inference), Ollama. ONNX export, TensorRT optimization. Batching strategies, KV cache management, SLA-aware inference.</p>
         <div class="tag-list">
           <span class="tag">vLLM</span><span class="tag">TGI</span><span class="tag">TensorRT</span><span class="tag">KV Cache</span>
@@ -1244,7 +610,7 @@
       </div>
       <div class="card">
         <span class="card-icon">📏</span>
-        <div class="card-title">Evaluation & Benchmarking</div>
+        <div class="card-title">Evaluation &amp; Benchmarking</div>
         <p>MMLU, HumanEval, MATH, MT-Bench. LLM-as-a-judge frameworks. Red-teaming and safety evaluation. Building custom evals for production use cases.</p>
         <div class="tag-list">
           <span class="tag">MMLU</span><span class="tag">LM-Eval</span><span class="tag">LLM-Judge</span><span class="tag">Red-Teaming</span>
@@ -1262,6 +628,7 @@
 
   <div class="table-card" style="margin-bottom:24px">
     <div class="table-card-header">
+      <!-- FIX: use CSS var instead of inline hex for dot-indicator -->
       <div class="dot-indicator" style="background:var(--accent1);box-shadow:0 0 8px var(--accent1)"></div>
       <span>36-Month Fast-Track Plan</span>
     </div>
@@ -1302,12 +669,11 @@
     </div>
   </div>
 
-  <!-- KEY INSIGHT BOX -->
-  <div style="background: linear-gradient(135deg, rgba(56,189,248,0.05), rgba(167,139,250,0.05)); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 28px; margin: 32px 0; position: relative; overflow: hidden;">
-    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,0.5),rgba(167,139,250,0.5),transparent)"></div>
-    <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">// Key Insight: The Fast-Track Strategy</div>
-    <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:600;line-height:1.6;color:#f1f5f9;">
-      Phases 1 and 2 (NLP + Vision) overlap intentionally — both rely on the same Transformer backbone. Once you deeply understand one, the other accelerates. The most common trap is spending too long on theory before shipping projects. <span style="color:var(--accent1)">Ship something every two weeks.</span> The research frontier is won by those who can both read the paper and run the experiment.
+  <!-- KEY INSIGHT BOX — FIX: replaced all inline styles with .insight-box class -->
+  <div class="insight-box">
+    <div class="insight-label">// Key Insight: The Fast-Track Strategy</div>
+    <div class="insight-text">
+      Phases 1 and 2 (NLP + Vision) overlap intentionally — both rely on the same Transformer backbone. Once you deeply understand one, the other accelerates. The most common trap is spending too long on theory before shipping projects. <span class="highlight">Ship something every two weeks.</span> The research frontier is won by those who can both read the paper and run the experiment.
     </div>
   </div>
 
@@ -1317,6 +683,34 @@
   </footer>
 
 </div>
+
+<script>
+  const html = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const icon = document.getElementById('toggleIcon');
+  const label = document.getElementById('toggleLabel');
+
+  // Restore saved preference
+  const saved = localStorage.getItem('theme') || 'dark';
+  setTheme(saved);
+
+  btn.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  function setTheme(t) {
+    html.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+    if (t === 'light') {
+      icon.textContent = '🌙';
+      label.textContent = 'Dark';
+    } else {
+      icon.textContent = '☀️';
+      label.textContent = 'Light';
+    }
+  }
+</script>
 
 </body>
 </html>
