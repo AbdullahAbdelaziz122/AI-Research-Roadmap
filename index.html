@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI/ML PhD + Senior Engineer Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050810;
+    --surface: #0c1120;
+    --surface2: #111827;
+    --border: rgba(99, 179, 237, 0.15);
+    --accent1: #38bdf8;
+    --accent2: #a78bfa;
+    --accent3: #34d399;
+    --accent4: #f472b6;
+    --accent5: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --glow1: rgba(56, 189, 248, 0.15);
+    --glow2: rgba(167, 139, 250, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Ambient background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 100%, rgba(167, 139, 250, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(52, 211, 153, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    background: rgba(56, 189, 248, 0.05);
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #e2e8f0 30%, var(--accent1) 70%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    letter-spacing: 0.05em;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent1);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── TIMELINE SPINE ── */
+  .timeline {
+    position: relative;
+    padding: 20px 0 60px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--accent1), var(--accent2), var(--accent3), var(--accent4), var(--accent5), transparent);
+    transform: translateX(-50%);
+    opacity: 0.4;
+  }
+
+  /* ── PHASE HEADER ── */
+  .phase-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 60px 0 32px;
+    position: relative;
+  }
+
+  .phase-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .phase-dot::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.3); opacity: 0.1; }
+  }
+
+  .phase-title-wrap {
+    text-align: center;
+  }
+
+  .phase-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .phase-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  /* Colors per phase */
+  .p0 .phase-dot { background: linear-gradient(135deg, #1e293b, #0f1f35); border: 2px solid var(--accent1); color: var(--accent1); }
+  .p0 .phase-dot::after { background: var(--accent1); border: 2px solid var(--accent1); }
+  .p0 .phase-title { color: var(--accent1); }
+
+  .p1 .phase-dot { background: linear-gradient(135deg, #1a1040, #0f0a2a); border: 2px solid var(--accent2); color: var(--accent2); }
+  .p1 .phase-dot::after { background: var(--accent2); }
+  .p1 .phase-title { color: var(--accent2); }
+
+  .p2 .phase-dot { background: linear-gradient(135deg, #0a2018, #051510); border: 2px solid var(--accent3); color: var(--accent3); }
+  .p2 .phase-dot::after { background: var(--accent3); }
+  .p2 .phase-title { color: var(--accent3); }
+
+  .p3 .phase-dot { background: linear-gradient(135deg, #2a0f1e, #1a0510); border: 2px solid var(--accent4); color: var(--accent4); }
+  .p3 .phase-dot::after { background: var(--accent4); }
+  .p3 .phase-title { color: var(--accent4); }
+
+  .p4 .phase-dot { background: linear-gradient(135deg, #2a1f05, #1a1205); border: 2px solid var(--accent5); color: var(--accent5); }
+  .p4 .phase-dot::after { background: var(--accent5); }
+  .p4 .phase-title { color: var(--accent5); }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card-full { grid-column: 1 / -1; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  /* phase accent lines */
+  .p0 .card::before { background: linear-gradient(90deg, transparent, var(--accent1), transparent); }
+  .p1 .card::before { background: linear-gradient(90deg, transparent, var(--accent2), transparent); }
+  .p2 .card::before { background: linear-gradient(90deg, transparent, var(--accent3), transparent); }
+  .p3 .card::before { background: linear-gradient(90deg, transparent, var(--accent4), transparent); }
+  .p4 .card::before { background: linear-gradient(90deg, transparent, var(--accent5), transparent); }
+
+  .card-icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #f1f5f9;
+  }
+
+  .card p {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .tag {
+    font-size: 10.5px;
+    font-family: 'Space Mono', monospace;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .p0 .tag { background: rgba(56, 189, 248, 0.1); color: var(--accent1); border: 1px solid rgba(56,189,248,0.2); }
+  .p1 .tag { background: rgba(167, 139, 250, 0.1); color: var(--accent2); border: 1px solid rgba(167,139,250,0.2); }
+  .p2 .tag { background: rgba(52, 211, 153, 0.1); color: var(--accent3); border: 1px solid rgba(52,211,153,0.2); }
+  .p3 .tag { background: rgba(244, 114, 182, 0.1); color: var(--accent4); border: 1px solid rgba(244,114,182,0.2); }
+  .p4 .tag { background: rgba(251, 191, 36, 0.1); color: var(--accent5); border: 1px solid rgba(251,191,36,0.2); }
+
+  /* ── TABLE CARD ── */
+  .table-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .table-card-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .table-card-header span {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+
+  .dot-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .p0 .dot-indicator { background: var(--accent1); box-shadow: 0 0 8px var(--accent1); }
+  .p1 .dot-indicator { background: var(--accent2); box-shadow: 0 0 8px var(--accent2); }
+  .p2 .dot-indicator { background: var(--accent3); box-shadow: 0 0 8px var(--accent3); }
+  .p3 .dot-indicator { background: var(--accent4); box-shadow: 0 0 8px var(--accent4); }
+  .p4 .dot-indicator { background: var(--accent5); box-shadow: 0 0 8px var(--accent5); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  th {
+    text-align: left;
+    padding: 10px 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    color: #cbd5e1;
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  td:first-child {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #f1f5f9;
+    white-space: nowrap;
+  }
+
+  /* ── MILESTONE BANNER ── */
+  .milestone {
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin: 16px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .p0 .milestone { background: rgba(56,189,248,0.07); border: 1px solid rgba(56,189,248,0.2); }
+  .p1 .milestone { background: rgba(167,139,250,0.07); border: 1px solid rgba(167,139,250,0.2); }
+  .p2 .milestone { background: rgba(52,211,153,0.07); border: 1px solid rgba(52,211,153,0.2); }
+  .p3 .milestone { background: rgba(244,114,182,0.07); border: 1px solid rgba(244,114,182,0.2); }
+  .p4 .milestone { background: rgba(251,191,36,0.07); border: 1px solid rgba(251,191,36,0.2); }
+
+  .milestone-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+
+  .milestone-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: 0.7;
+  }
+
+  .milestone-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* ── TIMELINE BLOCK ── */
+  .timeline-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-left: 2px solid var(--border);
+    padding-left: 20px;
+    margin-left: 12px;
+    margin-bottom: 6px;
+    position: relative;
+  }
+
+  .timeline-block::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+  }
+
+  .tl-month {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    min-width: 60px;
+  }
+
+  .tl-text {
+    font-size: 12.5px;
+    color: #cbd5e1;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 32px;
+  }
+
+  .section-divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-divider-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    margin: 6px 0 12px;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    animation: fillBar 1.5s ease-out forwards;
+    transform-origin: left;
+  }
+
+  @keyframes fillBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .p0 .progress-fill { background: linear-gradient(90deg, var(--accent1), rgba(56,189,248,0.5)); }
+  .p1 .progress-fill { background: linear-gradient(90deg, var(--accent2), rgba(167,139,250,0.5)); }
+  .p2 .progress-fill { background: linear-gradient(90deg, var(--accent3), rgba(52,211,153,0.5)); }
+  .p3 .progress-fill { background: linear-gradient(90deg, var(--accent4), rgba(244,114,182,0.5)); }
+  .p4 .progress-fill { background: linear-gradient(90deg, var(--accent5), rgba(251,191,36,0.5)); }
+
+  /* ── FINAL OUTCOME ── */
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .outcome-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .outcome-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .oc1::after { background: var(--accent1); }
+  .oc2::after { background: var(--accent2); }
+  .oc3::after { background: var(--accent3); }
+
+  .outcome-icon { font-size: 28px; margin-bottom: 12px; }
+  .outcome-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #f1f5f9;
+  }
+  .outcome-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+
+  footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    margin-top: 12px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12.5px;
+    color: #94a3b8;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .p0 .check-box { border: 1.5px solid var(--accent1); }
+  .p1 .check-box { border: 1.5px solid var(--accent2); }
+  .p2 .check-box { border: 1.5px solid var(--accent3); }
+  .p3 .check-box { border: 1.5px solid var(--accent4); }
+  .p4 .check-box { border: 1.5px solid var(--accent5); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .outcome-grid { grid-template-columns: 1fr; }
+    .timeline::before { left: 20px; }
+    .phase-header { flex-direction: column; }
+    .stats-row { gap: 24px; }
+    h1 { font-size: 2rem; }
+  }
+
+  /* ── CODE INLINE ── */
+  code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    background: rgba(255,255,255,0.05);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--accent3);
+  }
+
+  /* ── PAPER CARD (full-width reading) ── */
+  .paper-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .paper-row:last-child { border-bottom: none; }
+  .paper-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    min-width: 36px;
+    margin-top: 2px;
+  }
+  .paper-title {
+    font-size: 12.5px;
+    color: #e2e8f0;
+    font-weight: 500;
+  }
+  .paper-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="badge">// FAST-TRACK ROADMAP 2025–2028</div>
+    <h1>AI/ML PhD Level<br>+ Senior Engineer</h1>
+    <p class="subtitle">From mathematical foundations to the research frontier — a complete, phased execution plan for mastering the full stack of modern artificial intelligence.</p>
+    <div class="stats-row">
+      <div class="stat"><span class="stat-val">5</span><span class="stat-label">Phases</span></div>
+      <div class="stat"><span class="stat-val">~3yr</span><span class="stat-label">Fast Track</span></div>
+      <div class="stat"><span class="stat-val">100+</span><span class="stat-label">Core Papers</span></div>
+      <div class="stat"><span class="stat-val">PhD</span><span class="stat-label">Target Level</span></div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════ -->
+  <!-- PHASE 0 — MATH BEDROCK -->
+  <!-- ════════════════════════════════════════ -->
+  <div class="timeline">
+
+    <section class="p0">
+      <div class="phase-header">
+        <div class="phase-dot">0</div>
+        <div class="phase-title-wrap">
+          <div class="phase-label">// Phase Zero · Months 0–3</div>
+          <div class="phase-title">Mathematical Bedrock</div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-icon">🎯</div>
+        <div>
+          <div class="milestone-title">Goal</div>
+          <div class="milestone-text">Build the mathematical language that every architecture, loss function, and optimization algorithm is written in. No shortcuts here — everything later depends on this.</div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">🔢</span>
+          <div class="card-title">Linear Algebra</div>
+          <p>Vector spaces, matrix operations, eigendecomposition, SVD, PCA. Understand why word embeddings are just PCA on co-occurrence matrices.</p>
+          <div class="tag-list">
+            <span class="tag">SVD</span><span class="tag">PCA</span><span class="tag">Eigenvalues</span><span class="tag">Tensors</span>
+          </div>
+        </div>
+        <div class="card">
+          <span class="card-icon">📐</span>
+          <div class="card-title">Calculus & Optimization</div>
+          <p>Multivariable derivatives, Jacobians, Hessians, chain rule. Non-convex optimization, SGD, Adam, momentum. Foundation of backpropagation.</p>
+          <div class="tag-list">
+            <span class="tag">Backprop</span><span class="tag">Adam</span><span class="tag">SGD</span><span class="tag">Chain Rule</span>
+          </div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎲</span>
+          <div class="card-title">Probability & Statistics</div>
+          <p>Bayesian inference, Gaussian processes, latent variable models, MLE, MAP. This is the language of generative models, VAEs, and diffusion.</p>
+          <div class="tag-list">
+            <span class="tag">Bayes</span><span class="tag">MLE</span><span class="tag">Distributions</span><span class="tag">CRFs</span>
+          </div>
+        </div>
+        <div class="card">
+          <span class="card-icon">📡</span>
+          <div class="card-title">Information Theory</div>
+          <p>Entropy, KL divergence, mutual information, cross-entropy loss. Essential for understanding tokenization efficiency, RLHF reward modeling.</p>
+          <div class="tag-list">
+            <span class="tag">KL Divergence</span><span class="tag">Cross-Entropy</span><span class="tag">Mutual Info</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <div class="dot-indicator"></div>
+          <span>Phase 0 — Recommended Resources</span>
+        </div>
+        <table>
+          <tr><th>Resource</th><th>Focus</th><th>Format</th></tr>
+          <tr><td>Gilbert Strang — Linear Algebra (MIT OCW)</td><td>Full linear algebra foundation</td><td>Video + Textbook</td></tr>
+          <tr><td>3Blue1Brown — Essence of Linear Algebra</td><td>Geometric intuition for all concepts</td><td>Video Series</td></tr>
+          <tr><td>Deep Learning Book (Goodfellow) Ch. 2–4</td><td>Math of ML: LA, Probability, Numerics</td><td>Free Online</td></tr>
+          <tr><td>Probabilistic ML (Kevin Murphy, 2022)</td><td>Bayesian perspective on modern ML</td><td>Textbook</td></tr>
+          <tr><td>CS229 Lecture Notes (Stanford)</td><td>Statistical learning theory</td><td>PDF Notes</td></tr>
+          <tr><td>Khan Academy / Paul's Math Notes</td><td>Multivariable calculus refresher</td><td>Online</td></tr>
+        </table>
+      </div>
+
+      <div class="card card-full">
+        <div class="card-title">⏱ 3-Month Sprint Schedule</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <div class="timeline-block"><span class="tl-month">M1 W1–2</span><span class="tl-text">Linear Algebra: vectors, matrices, transformations, SVD, PCA — Strang lectures + exercises</span></div>
+            <div class="timeline-block"><span class="tl-month">M1 W3–4</span><span class="tl-text">Eigendecomposition, tensor basics, group theory intro for geometric deep learning</span></div>
+            <div class="timeline-block"><span class="tl-month">M2 W1–2</span><span class="tl-text">Multivariable calculus: gradients, Jacobians, Hessians. Derive backprop manually.</span></div>
+          </div>
+          <div>
+            <div class="timeline-block"><span class="tl-month">M2 W3–4</span><span class="tl-text">Probability & statistics: distributions, Bayes, Gaussian processes, MLE/MAP</span></div>
+            <div class="timeline-block"><span class="tl-month">M3 W1–2</span><span class="tl-text">Information theory: entropy, KL divergence, cross-entropy. Implement soft targets, label smoothing.</span></div>
+            <div class="timeline-block"><span class="tl-month">M3 W3–4</span><span class="tl-text">Optimization theory: SGD, Adam, learning rate schedules, non-convex landscapes. Read original Adam paper.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Phase Progress</span><span>100%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- PHASE 1 — NLP THEORY + DEEP LEARNING -->
+    <!-- ════════════════════════════════════════ -->
+    <section class="p1">
+      <div class="phase-header">
+        <div class="phase-dot">1</div>
+        <div class="phase-title-wrap">
+          <div class="phase-label">// Phase One · Months 4–9</div>
+          <div class="phase-title">NLP Theory + Deep Learning Core</div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-icon">🎯</div>
+        <div>
+          <div class="milestone-title">Goal</div>
+          <div class="milestone-text">Master the Transformer architecture from first principles. Implement every component from scratch. Understand LLMs, BERT, GPT, fine-tuning, alignment, and reasoning methods at PhD depth.</div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">📝</span>
+          <div class="card-title">Word Representations</div>
+          <p>One-hot → Word2Vec → GloVe → FastText. Understand distributional semantics, the matrix factorization perspective, and why context = meaning.</p>
+          <div class="tag-list"><span class="tag">Word2Vec</span><span class="tag">GloVe</span><span class="tag">Embeddings</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔁</span>
+          <div class="card-title">Sequence Models</div>
+          <p>RNNs, LSTMs, GRUs — understand vanishing gradients, gating, and why they were superseded. Study HMMs and CRFs for structured prediction.</p>
+          <div class="tag-list"><span class="tag">LSTM</span><span class="tag">GRU</span><span class="tag">HMM</span><span class="tag">CRF</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">⚡</span>
+          <div class="card-title">The Transformer</div>
+          <p>Scaled dot-product attention, multi-head attention, positional encoding, RoPE, layer norm, feed-forward blocks. Implement from scratch in PyTorch.</p>
+          <div class="tag-list"><span class="tag">Attention</span><span class="tag">RoPE</span><span class="tag">LayerNorm</span><span class="tag">MHA</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🧠</span>
+          <div class="card-title">Pre-training Paradigms</div>
+          <p>BERT (MLM + NSP), GPT (causal LM), T5 (span corruption). Understand why scale changes the game — emergent capabilities, few-shot learning.</p>
+          <div class="tag-list"><span class="tag">BERT</span><span class="tag">GPT</span><span class="tag">T5</span><span class="tag">Scaling</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎓</span>
+          <div class="card-title">Alignment & RLHF</div>
+          <p>Instruction tuning, SFT, PPO-based RLHF, DPO. Understand why reward models fail and what Constitutional AI solves. Read InstructGPT paper carefully.</p>
+          <div class="tag-list"><span class="tag">DPO</span><span class="tag">RLHF</span><span class="tag">SFT</span><span class="tag">PPO</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔗</span>
+          <div class="card-title">Efficient Fine-Tuning</div>
+          <p>LoRA, QLoRA, Adapters, Prefix Tuning. Understand low-rank decomposition, why it works, and when full fine-tuning is still needed.</p>
+          <div class="tag-list"><span class="tag">LoRA</span><span class="tag">QLoRA</span><span class="tag">PEFT</span><span class="tag">Adapters</span></div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <div class="dot-indicator"></div>
+          <span>Core Papers — Phase 1 Reading List</span>
+        </div>
+        <table>
+          <tr><th>Year</th><th>Paper</th><th>Why It Matters</th></tr>
+          <tr><td>2013</td><td>Word2Vec (Mikolov et al.)</td><td>Distributional representations; links to SVD/PCA</td></tr>
+          <tr><td>2017</td><td>Attention Is All You Need</td><td>The backbone of modern AI — mandatory reading</td></tr>
+          <tr><td>2018</td><td>BERT (Devlin et al.)</td><td>Established the pre-train / fine-tune paradigm</td></tr>
+          <tr><td>2020</td><td>GPT-3 (Brown et al.)</td><td>In-context learning; emergent scale effects</td></tr>
+          <tr><td>2021</td><td>LoRA (Hu et al.)</td><td>The universal PEFT standard</td></tr>
+          <tr><td>2022</td><td>Chain-of-Thought Prompting (Wei et al.)</td><td>Foundation of LLM reasoning capabilities</td></tr>
+          <tr><td>2022</td><td>InstructGPT (Ouyang et al.)</td><td>RLHF for alignment — landmark paper</td></tr>
+          <tr><td>2023</td><td>DPO (Rafailov et al.)</td><td>Modern alignment standard without RL</td></tr>
+          <tr><td>2023</td><td>LLaMA 1 & 2 (Meta)</td><td>Open-source SOTA; study the architecture choices</td></tr>
+          <tr><td>2024</td><td>Llama 3 / Qwen 2 Technical Reports</td><td>State-of-the-art open model training pipelines</td></tr>
+        </table>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-title">🛠 Practical Projects — Phase 1</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span>Implement Word2Vec skip-gram from scratch in NumPy</li>
+            <li><span class="check-box"></span>Build a Transformer encoder/decoder in PyTorch, no libraries</li>
+            <li><span class="check-box"></span>Fine-tune BERT on a classification task (SQuAD or GLUE)</li>
+            <li><span class="check-box"></span>Implement a mini GPT-2 and train on small text corpus</li>
+            <li><span class="check-box"></span>Implement LoRA fine-tuning on LLaMA using Hugging Face PEFT</li>
+            <li><span class="check-box"></span>Train a simple reward model and run PPO-based RLHF loop</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">📚 Courses</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CS224N</strong> — NLP with Deep Learning (primary)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CME295</strong> — Transformers & LLMs (supplement)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">fast.ai Part 1</strong> — Practical Deep Learning (code-first grounding)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Andrej Karpathy</strong> — Neural Nets: Zero to Hero (YouTube)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">CMU 11-711</strong> — Advanced NLP (PhD-level supplement)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Phase Progress</span><span>80%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- PHASE 2 — COMPUTER VISION -->
+    <!-- ════════════════════════════════════════ -->
+    <section class="p2">
+      <div class="phase-header">
+        <div class="phase-dot">2</div>
+        <div class="phase-title-wrap">
+          <div class="phase-label">// Phase Two · Months 7–12 (parallel with Phase 1)</div>
+          <div class="phase-title">Computer Vision + Multimodal AI</div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-icon">🎯</div>
+        <div>
+          <div class="milestone-title">Goal</div>
+          <div class="milestone-text">Achieve PhD-level vision. Understand classical image processing, deep CNNs, ViT, diffusion models, 3D reconstruction (NeRF, Gaussian Splatting), and multimodal systems like CLIP and GPT-4o.</div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">🖼</span>
+          <div class="card-title">Classical Vision & Signals</div>
+          <p>Images as signals. Linear filters, Fourier transforms, image pyramids, edge detection, SIFT, HOG. Physics of image formation, pinhole cameras.</p>
+          <div class="tag-list"><span class="tag">Fourier</span><span class="tag">Filters</span><span class="tag">SIFT</span><span class="tag">Camera Model</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🏗</span>
+          <div class="card-title">CNNs & Deep Architectures</div>
+          <p>AlexNet → VGG → ResNet (residual connections) → EfficientNet → ConvNeXt. Understand local receptive fields, weight sharing, pooling strategies.</p>
+          <div class="tag-list"><span class="tag">ResNet</span><span class="tag">ConvNeXt</span><span class="tag">Batch Norm</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">👁</span>
+          <div class="card-title">Vision Transformers</div>
+          <p>ViT: image patches as tokens. DINO, DINOv2 self-supervised pretraining. Swin Transformer hierarchical representations. MAE masked autoencoding.</p>
+          <div class="tag-list"><span class="tag">ViT</span><span class="tag">DINO</span><span class="tag">MAE</span><span class="tag">Swin</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🌐</span>
+          <div class="card-title">Multimodal: CLIP & Beyond</div>
+          <p>Contrastive Language-Image Pre-training. Zero-shot classification, image-text retrieval, visual question answering. BLIP, BLIP-2, LLaVA, GPT-4V.</p>
+          <div class="tag-list"><span class="tag">CLIP</span><span class="tag">LLaVA</span><span class="tag">VQA</span><span class="tag">Contrastive</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🌀</span>
+          <div class="card-title">Diffusion Models</div>
+          <p>DDPM, DDIM, score matching, classifier-free guidance. Latent diffusion (Stable Diffusion). DiT (Diffusion Transformers) as backbone of Sora 2.</p>
+          <div class="tag-list"><span class="tag">DDPM</span><span class="tag">LDM</span><span class="tag">DiT</span><span class="tag">CFG</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🧊</span>
+          <div class="card-title">3D Vision & Scene Reconstruction</div>
+          <p>NeRF, Instant-NGP, 3D Gaussian Splatting. Projective geometry, fundamental matrix, eight-point algorithm, structure-from-motion (SfM).</p>
+          <div class="tag-list"><span class="tag">NeRF</span><span class="tag">Gaussian Splatting</span><span class="tag">SfM</span><span class="tag">MVS</span></div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <div class="dot-indicator"></div>
+          <span>Core Papers — Phase 2 Reading List</span>
+        </div>
+        <table>
+          <tr><th>Year</th><th>Paper</th><th>Why It Matters</th></tr>
+          <tr><td>2012</td><td>AlexNet (Krizhevsky et al.)</td><td>Sparked the modern deep learning era</td></tr>
+          <tr><td>2016</td><td>Deep Residual Networks — ResNet (He et al.)</td><td>Residual connections enabled very deep networks</td></tr>
+          <tr><td>2020</td><td>ViT — An Image is Worth 16x16 Words</td><td>Transformer paradigm enters vision</td></tr>
+          <tr><td>2020</td><td>NeRF (Mildenhall et al.)</td><td>Revolutionary neural 3D reconstruction</td></tr>
+          <tr><td>2020</td><td>DDPM (Ho et al.)</td><td>Theoretical basis for modern image generation</td></tr>
+          <tr><td>2021</td><td>CLIP (Radford et al.)</td><td>Foundation of modern vision-language models</td></tr>
+          <tr><td>2022</td><td>MAE (He et al.)</td><td>Self-supervised ViT training</td></tr>
+          <tr><td>2022</td><td>LDM / Stable Diffusion (Rombach et al.)</td><td>Practical high-res diffusion generation</td></tr>
+          <tr><td>2023</td><td>3D Gaussian Splatting</td><td>Real-time neural 3D rendering</td></tr>
+          <tr><td>2024</td><td>VGGT — Visual Geometry Grounded Transformer</td><td>Current frontier of 3D scene understanding</td></tr>
+        </table>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-title">🛠 Practical Projects — Phase 2</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span>Implement a CNN from scratch; train on CIFAR-10</li>
+            <li><span class="check-box"></span>Fine-tune ViT on a custom image dataset</li>
+            <li><span class="check-box"></span>Reproduce CLIP contrastive training on a small dataset</li>
+            <li><span class="check-box"></span>Implement DDPM from scratch; generate MNIST samples</li>
+            <li><span class="check-box"></span>Train a tiny NeRF on a set of images (using tiny-nerf)</li>
+            <li><span class="check-box"></span>Fine-tune LLaVA or InternVL for a visual QA task</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">📚 Courses</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CS231N</strong> — CNNs for Visual Recognition (primary)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">MIT 6.869</strong> — Advances in Computer Vision</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">CMU 16-825</strong> — Learning for 3D Vision</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">CVPR / ECCV tutorials</strong> — Diffusion models, NeRF workshops</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Justin Johnson — EECS 498</strong> (Michigan, free videos)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Phase Progress</span><span>70%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- PHASE 3 — SYSTEMS & INFRASTRUCTURE -->
+    <!-- ════════════════════════════════════════ -->
+    <section class="p3">
+      <div class="phase-header">
+        <div class="phase-dot">3</div>
+        <div class="phase-title-wrap">
+          <div class="phase-label">// Phase Three · Months 12–20</div>
+          <div class="phase-title">Systems, Infrastructure & Scale</div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-icon">🎯</div>
+        <div>
+          <div class="milestone-title">Goal</div>
+          <div class="milestone-text">Become the engineer who can actually train models. Understand GPU memory, custom CUDA/Triton kernels, distributed training, tokenization, data curation, and scaling laws at a production level.</div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">💾</span>
+          <div class="card-title">GPU Architecture & Memory</div>
+          <p>CUDA programming model: warps, SMs, shared memory. The HBM → SRAM hierarchy. Understand memory bandwidth bottlenecks that define training speed.</p>
+          <div class="tag-list"><span class="tag">CUDA</span><span class="tag">SRAM</span><span class="tag">HBM</span><span class="tag">Warps</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">⚡</span>
+          <div class="card-title">Efficient Attention</div>
+          <p>FlashAttention and FlashAttention2: IO-aware attention that avoids quadratic memory. Write Triton kernels. Understand tiling, online softmax, backward pass.</p>
+          <div class="tag-list"><span class="tag">FlashAttn2</span><span class="tag">Triton</span><span class="tag">Tiling</span><span class="tag">IO-Aware</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🌐</span>
+          <div class="card-title">Distributed Training</div>
+          <p>Data parallelism (DDP), tensor parallelism (Megatron), pipeline parallelism (GPipe), ZeRO (DeepSpeed). 3D parallelism for trillion-parameter models.</p>
+          <div class="tag-list"><span class="tag">DDP</span><span class="tag">DeepSpeed</span><span class="tag">Megatron</span><span class="tag">ZeRO</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔤</span>
+          <div class="card-title">Tokenization & Data Engineering</div>
+          <p>BPE, WordPiece, SentencePiece. Build a tokenizer from scratch. Data curation: Common Crawl filtering, deduplication, quality scoring, domain mixing.</p>
+          <div class="tag-list"><span class="tag">BPE</span><span class="tag">SentencePiece</span><span class="tag">Dedup</span><span class="tag">FineWeb</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">📊</span>
+          <div class="card-title">Scaling Laws</div>
+          <p>Chinchilla laws, compute-optimal training, emergent capabilities. Use scaling laws to forecast model quality before billion-dollar training runs.</p>
+          <div class="tag-list"><span class="tag">Chinchilla</span><span class="tag">Compute-Optimal</span><span class="tag">IsoFLOP</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🗜</span>
+          <div class="card-title">Quantization & Efficiency</div>
+          <p>FP8, BF16 mixed precision. Post-training quantization: GPTQ, AWQ. QLoRA for efficient fine-tuning. Speculative decoding for faster inference.</p>
+          <div class="tag-list"><span class="tag">GPTQ</span><span class="tag">AWQ</span><span class="tag">QLoRA</span><span class="tag">FP8</span></div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <div class="dot-indicator"></div>
+          <span>Core Papers — Phase 3 Systems Reading List</span>
+        </div>
+        <table>
+          <tr><th>Year</th><th>Paper</th><th>Why It Matters</th></tr>
+          <tr><td>2022</td><td>FlashAttention (Dao et al.)</td><td>IO-aware attention — mandatory for training engineers</td></tr>
+          <tr><td>2022</td><td>Chinchilla Scaling Laws (Hoffmann et al.)</td><td>How to allocate compute optimally</td></tr>
+          <tr><td>2022</td><td>ZeRO / DeepSpeed (Rajbhandari et al.)</td><td>Trillion-parameter training on commodity GPUs</td></tr>
+          <tr><td>2023</td><td>FlashAttention-2 (Dao et al.)</td><td>2× speedup; standard for all modern training</td></tr>
+          <tr><td>2023</td><td>Megatron-LM (NVIDIA)</td><td>3D tensor parallelism for massive clusters</td></tr>
+          <tr><td>2024</td><td>FineWeb (HuggingFace)</td><td>State-of-the-art web data curation pipeline</td></tr>
+          <tr><td>2024</td><td>FlashAttention-3 (Dao et al.)</td><td>H100-native optimized attention kernels</td></tr>
+          <tr><td>2025</td><td>Ultra-Scale Playbook (HuggingFace)</td><td>Comprehensive distributed training guide</td></tr>
+        </table>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-title">🛠 Practical Projects — Phase 3</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span>Build a BPE tokenizer from scratch — train on 1GB text corpus</li>
+            <li><span class="check-box"></span>Write a Triton kernel for FlashAttention forward pass</li>
+            <li><span class="check-box"></span>Set up DDP training on a 4-GPU node; benchmark throughput</li>
+            <li><span class="check-box"></span>Train a 1B-param LM from scratch (Stanford CS336 project)</li>
+            <li><span class="check-box"></span>Reproduce FineWeb-style data curation pipeline</li>
+            <li><span class="check-box"></span>Implement speculative decoding; measure latency gains</li>
+            <li><span class="check-box"></span>Profile a training run with NSight; find the bottleneck</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">📚 Courses & Resources</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CS336</strong> — Language Modeling from Scratch (primary)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">CUDA Programming Guide</strong> (NVIDIA docs)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Triton documentation + tutorials</strong> (OpenAI / triton-lang)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">HuggingFace Ultra-Scale Playbook</strong></li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Sasha Rush — miniGPT / annotated transformer</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Phase Progress</span><span>60%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- PHASE 4 — REASONING, AGENTS, RESEARCH -->
+    <!-- ════════════════════════════════════════ -->
+    <section class="p4">
+      <div class="phase-header">
+        <div class="phase-dot">4</div>
+        <div class="phase-title-wrap">
+          <div class="phase-label">// Phase Four · Months 20–30</div>
+          <div class="phase-title">Reasoning, Agents & Research Frontier</div>
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-icon">🎯</div>
+        <div>
+          <div class="milestone-title">Goal</div>
+          <div class="milestone-text">Operate at the frontier. Understand DeepSeek-R1's pure RL training, GRPO, agentic frameworks, RAG, video world models, and contribute original research. Begin publishing.</div>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">🤔</span>
+          <div class="card-title">Reasoning & Chain-of-Thought</div>
+          <p>CoT, self-consistency, tree-of-thought, process reward models (PRM) vs outcome reward models (ORM). The "Open-Book Paradox" — why closed-book training builds stronger reasoners.</p>
+          <div class="tag-list"><span class="tag">CoT</span><span class="tag">PRM</span><span class="tag">ORM</span><span class="tag">Self-Consistency</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🏋</span>
+          <div class="card-title">RL for Reasoning</div>
+          <p>DeepSeek-R1: pure RL from base model without SFT. GRPO (Group Relative Policy Optimization). "Aha moment" emergence. STILL (Self-Play + RL).</p>
+          <div class="tag-list"><span class="tag">GRPO</span><span class="tag">R1</span><span class="tag">STILL</span><span class="tag">Verifiable Rewards</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🤖</span>
+          <div class="card-title">Agentic AI & Tool Use</div>
+          <p>ReAct, Toolformer, function calling APIs. Multi-agent orchestration. Software engineering agents (SWE-Bench, SWE-RL). Memory architectures for long-horizon tasks.</p>
+          <div class="tag-list"><span class="tag">ReAct</span><span class="tag">SWE-Bench</span><span class="tag">Multi-Agent</span><span class="tag">MCP</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔍</span>
+          <div class="card-title">RAG & Knowledge Grounding</div>
+          <p>Retrieval-Augmented Generation: dense retrieval, hybrid search, re-ranking. Advanced RAG: HyDE, RAPTOR, agentic RAG. Reducing hallucinations in production.</p>
+          <div class="tag-list"><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">HyDE</span><span class="tag">RAPTOR</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🎬</span>
+          <div class="card-title">Video & World Models</div>
+          <p>Sora 2 / Sora 3 architecture (Diffusion Transformer). VideoThinkBench: video generation models for spatial reasoning. Runway Gen-4.5 physics simulation.</p>
+          <div class="tag-list"><span class="tag">DiT</span><span class="tag">Sora</span><span class="tag">VideoThink</span><span class="tag">World Models</span></div>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔬</span>
+          <div class="card-title">Interpretability & Safety</div>
+          <p>Mechanistic interpretability: circuits, superposition, feature visualization. Anthropic's sparse autoencoders. Constitutional AI, Debate, scalable oversight methods.</p>
+          <div class="tag-list"><span class="tag">Circuits</span><span class="tag">SAE</span><span class="tag">CAI</span><span class="tag">Oversight</span></div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-card-header">
+          <div class="dot-indicator"></div>
+          <span>Core Papers — Frontier Research (2023–2026)</span>
+        </div>
+        <table>
+          <tr><th>Year</th><th>Paper</th><th>Significance</th></tr>
+          <tr><td>2023</td><td>Mamba: Linear-Time Sequence Modeling</td><td>State space alternative to attention — potential successor</td></tr>
+          <tr><td>2023</td><td>Toolformer (Schick et al.)</td><td>Models teaching themselves to use APIs</td></tr>
+          <tr><td>2024</td><td>DeepSeek-R1 (DeepSeek-AI)</td><td>Pure RL-trained reasoner — new training paradigm</td></tr>
+          <tr><td>2024</td><td>GPT-4o Technical Report (OpenAI)</td><td>Omni-modal native multimodality at scale</td></tr>
+          <tr><td>2024</td><td>SWE-Bench Verified</td><td>Gold standard for software engineering agents</td></tr>
+          <tr><td>2025</td><td>DeepSeek-V3 (MoE, open-source)</td><td>Open SOTA — study training efficiency innovations</td></tr>
+          <tr><td>2025</td><td>SWE-RL (Software Engineering RL)</td><td>RL for coding; open-book vs closed-book insight</td></tr>
+          <tr><td>2025</td><td>VideoThinkBench</td><td>Video generation surpassing VLMs in spatial reasoning</td></tr>
+          <tr><td>2025</td><td>Lumina-Video (V2A synthesis)</td><td>Synchronized video-to-audio generation</td></tr>
+          <tr><td>2026</td><td>VGGT + frontier geometry papers</td><td>Next-gen 3D-aware visual reasoning</td></tr>
+        </table>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-title">🛠 Practical Projects — Phase 4</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span>Implement GRPO from scratch; train a math reasoning model</li>
+            <li><span class="check-box"></span>Build a multi-step ReAct agent with tool use (search, code exec)</li>
+            <li><span class="check-box"></span>Reproduce DeepSeek-R1 RL training on a small task</li>
+            <li><span class="check-box"></span>Build an advanced RAG pipeline; benchmark vs naive RAG</li>
+            <li><span class="check-box"></span>Run mechanistic interpretability on a 1B model (TransformerLens)</li>
+            <li><span class="check-box"></span>Submit to a SWE-Bench leaderboard</li>
+            <li><span class="check-box"></span><strong style="color:#fbbf24">Write and submit a research paper</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">📚 Courses & Seminars</div>
+          <ul class="checklist">
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Stanford CME295</strong> — Transformers & LLMs (advanced)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">Berkeley CS285</strong> — Deep Reinforcement Learning</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">CMU 11-713</strong> — Advanced NLP (PhD seminar)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">BAIR / CSAIL reading groups</strong> (join or follow online)</li>
+            <li><span class="check-box"></span><strong style="color:#e2e8f0">NeurIPS / ICML / CVPR</strong> — Attend tutorials, workshops</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Phase Progress</span><span>40%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /timeline -->
+
+  <!-- SENIOR ENGINEER SKILLS -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// Senior AI Engineer Skills</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div style="margin-bottom:16px" class="p2">
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-icon">🐍</span>
+        <div class="card-title">Python & ML Stack</div>
+        <p>PyTorch (primary), JAX, Triton. Hugging Face Transformers, Datasets, PEFT. Weights & Biases, MLflow for experiment tracking. High-performance Python profiling.</p>
+        <div class="tag-list">
+          <span class="tag">PyTorch</span><span class="tag">JAX</span><span class="tag">HuggingFace</span><span class="tag">W&B</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">☁️</span>
+        <div class="card-title">Cloud & Infra</div>
+        <p>AWS / GCP / Azure GPU instances. Kubernetes for ML workloads. Docker containerization. Terraform infrastructure-as-code. CI/CD for model pipelines.</p>
+        <div class="tag-list">
+          <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">K8s</span><span class="tag">CI/CD</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">🚀</span>
+        <div class="card-title">Model Serving & Deployment</div>
+        <p>vLLM, TGI (Text Generation Inference), Ollama. ONNX export, TensorRT optimization. Batching strategies, KV cache management, SLA-aware inference.</p>
+        <div class="tag-list">
+          <span class="tag">vLLM</span><span class="tag">TGI</span><span class="tag">TensorRT</span><span class="tag">KV Cache</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-icon">📏</span>
+        <div class="card-title">Evaluation & Benchmarking</div>
+        <p>MMLU, HumanEval, MATH, MT-Bench. LLM-as-a-judge frameworks. Red-teaming and safety evaluation. Building custom evals for production use cases.</p>
+        <div class="tag-list">
+          <span class="tag">MMLU</span><span class="tag">LM-Eval</span><span class="tag">LLM-Judge</span><span class="tag">Red-Teaming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MASTER TIMELINE -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// Master Timeline</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="table-card" style="margin-bottom:24px">
+    <div class="table-card-header">
+      <div class="dot-indicator" style="background:var(--accent1);box-shadow:0 0 8px var(--accent1)"></div>
+      <span>36-Month Fast-Track Plan</span>
+    </div>
+    <table>
+      <tr><th>Period</th><th>Phase</th><th>Primary Focus</th><th>Milestone</th></tr>
+      <tr><td>M0–3</td><td>Phase 0</td><td>Math: LinAlg, Calc, Prob, InfoTheory</td><td>Pass ML foundations exam; derive backprop from scratch</td></tr>
+      <tr><td>M3–9</td><td>Phase 1a</td><td>NLP: Transformers, LLMs, Alignment (CS224N)</td><td>Implement Transformer from scratch; fine-tune LLaMA</td></tr>
+      <tr><td>M6–12</td><td>Phase 1b</td><td>Vision: CNNs, ViT, Diffusion, NeRF (CS231N)</td><td>Train diffusion model; implement ViT; reproduce CLIP</td></tr>
+      <tr><td>M12–18</td><td>Phase 2</td><td>Systems: GPU, FlashAttn, Distributed (CS336)</td><td>Train 1B model from scratch; write Triton kernel</td></tr>
+      <tr><td>M16–22</td><td>Phase 3a</td><td>Reasoning: CoT, RLHF, DPO, GRPO</td><td>Implement DPO pipeline; reproduce DeepSeek-R1 on small task</td></tr>
+      <tr><td>M20–28</td><td>Phase 3b</td><td>Agents: ReAct, RAG, Tool Use, Safety</td><td>SWE-Bench submission; build production RAG system</td></tr>
+      <tr><td>M24–36</td><td>Phase 4</td><td>Research Frontier + Original Contribution</td><td>First paper accepted at top-tier conference (NeurIPS/CVPR/ICLR)</td></tr>
+    </table>
+  </div>
+
+  <!-- OUTCOMES -->
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-text">// End State</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="outcome-grid">
+    <div class="outcome-card oc1">
+      <div class="outcome-icon">🎓</div>
+      <div class="outcome-title">PhD-Level Theory</div>
+      <div class="outcome-text">Can pass qualifying exams at CMU, MIT, Stanford. Fluent in the full literature from HMMs to Mamba. Capable of reading and critiquing any new paper at submission.</div>
+    </div>
+    <div class="outcome-card oc2">
+      <div class="outcome-icon">⚙️</div>
+      <div class="outcome-title">Senior Engineer</div>
+      <div class="outcome-text">Trains and deploys production models. Writes custom GPU kernels. Builds agentic pipelines, RAG systems, and evaluation frameworks. Proficient in distributed training at scale.</div>
+    </div>
+    <div class="outcome-card oc3">
+      <div class="outcome-icon">🔬</div>
+      <div class="outcome-title">Researcher</div>
+      <div class="outcome-text">Publishes at CVPR, NeurIPS, ICLR, or ACL. Contributes to open-source frontier models. Identifies and solves novel problems at the intersection of NLP, vision, and reasoning.</div>
+    </div>
+  </div>
+
+  <!-- KEY INSIGHT BOX -->
+  <div style="background: linear-gradient(135deg, rgba(56,189,248,0.05), rgba(167,139,250,0.05)); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 28px; margin: 32px 0; position: relative; overflow: hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,0.5),rgba(167,139,250,0.5),transparent)"></div>
+    <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">// Key Insight: The Fast-Track Strategy</div>
+    <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:600;line-height:1.6;color:#f1f5f9;">
+      Phases 1 and 2 (NLP + Vision) overlap intentionally — both rely on the same Transformer backbone. Once you deeply understand one, the other accelerates. The most common trap is spending too long on theory before shipping projects. <span style="color:var(--accent1)">Ship something every two weeks.</span> The research frontier is won by those who can both read the paper and run the experiment.
+    </div>
+  </div>
+
+  <footer>
+    <p>AI/ML RESEARCHER ROADMAP // PHASED EXECUTION PLAN // 2025–2028</p>
+    <p style="margin-top:8px;opacity:0.5">Based on Stanford CS224N · CS231N · CS336 · CME295 · MIT 6.869 · CMU 11-713 · Berkeley CS285</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
